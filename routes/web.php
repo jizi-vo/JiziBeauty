@@ -69,6 +69,7 @@ Route::post('/update-product/{product_id}','App\Http\controllers\ProductControll
 Route::post('/save-cart','App\Http\controllers\CartController@save_cart');
 Route::post('/add-cart-ajax','App\Http\controllers\CartController@add_cart_ajax');
 Route::get('/show-cart','App\Http\controllers\CartController@show_cart');
+Route::get('/show-cart-ajax','App\Http\controllers\CartController@show_cart_ajax');
 Route::get('/delete-to-cart/{rowId}','App\Http\controllers\CartController@delete_to_cart');
 Route::post('/update-cart-quantity','App\Http\controllers\CartController@update_cart_quantity');
 
