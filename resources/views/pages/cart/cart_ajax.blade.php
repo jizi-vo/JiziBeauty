@@ -21,22 +21,22 @@
 						</tr>
 					</thead>
 					<tbody>
-                     @foreach(Session::get('cart') as $key => $cart)
+                    @foreach(Session::get('cart') as $key) => $cart)
 						<tr>
 							<td class="cart_product">
-								<img src="{{asset('public/uploads/product/'.$cart['product_image'])}}" width="50" alt="">
+								<img src="" width="50" alt="">
 							</td>
 							<td class="cart_description">
 								<h4><a href=""></a></h4>
-								<p>{{$cart['product_name']}}</p>
+								<p>{{$cart->cart_product_name}}</p>
 							</td>
 							<td class="cart_price">
-								<p>{{number_format($cart['product_price'])}}</p>
+								<p></p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
 									 <form action="" method="POST">
-									<input class="cart_quantity_" type="number" min="1" name="cart_quantity" value="{{$cart['product_qty']}}">
+									<input class="cart_quantity_input" type="text"  name="cart_quantity" value="">
 									<input type="hidden" value="" name="rowId_cart" class="form-control">
 									<input type="submit" value="cập nhật" name="update_qty" class="btn btn-default btn-sm">
                                </form>
@@ -59,9 +59,7 @@
 	</section> 
 	<section id="do_action">
 		<div class="container">
-			<div class="heading">
-			
-			
+			<div class="row">
 			</div>
 				<div class="col-sm-6">
 					<div class="total_area">

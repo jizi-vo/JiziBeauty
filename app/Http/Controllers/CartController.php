@@ -23,7 +23,7 @@ class CartController extends Controller
       if($cart==true){
             $is_avaiable = 0;
             foreach($cart as $key => $val){
-               if($val['product_id']==$data['product_id']){
+               if($val['product_id']==$data['cart_product_id']){
                   $is_avaiable++;
                }
             }
@@ -36,7 +36,7 @@ class CartController extends Controller
                   'product_qty' => $data['cart_product_qty'],
                   'product_price' => $data['cart_product_price'],
                );
-               $Session::put('cart',$cart);
+               Session::put('cart',$cart);
             }
          }else{
             $cart[] = array(
