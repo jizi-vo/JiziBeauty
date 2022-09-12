@@ -73,11 +73,54 @@
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							<li>Tổng <span>{{Cart::pricetotal(0).' '.'vnđ'}}</span></li>
+							
+							<li>Tổng<span>{{Cart::pricetotal(0).' '.'vnđ'}}</span></li>
+							@if(Session::get('coupon'))
+							<li>
+								@foreach(Session::get('coupon') as $key => $cou)
+								@if($cou['coupon_condition']==1)
+									Mã giảm : {{$cou['coupon_number']}} %
+									<p>
+										@php 
+										$total_coupon = ($total*$cou['coupon_number'])/100;
+										echo '<p><li>Tổng giảm:'.number_format($total_coupon,0,',','.').'đ</li></p>';
+										@endphp
+									</p>
+									<p><li>Tổng đã giảm :{{number_format($total-$total_coupon,0,',','.')}}đ</li></p>
+								@elseif($cou['coupon_condition']==2)
+									Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} k
+									<p>
+										@php 
+										$total_coupon = $total - $cou['coupon_number'];
+						
+										@endphp
+									</p>
+									<p><li>Tổng đã giảm :{{number_format($total_coupon,0,',','.')}}đ</li></p>
+								@endif
+							@endforeach
+						
+                            </li>
+							@endif 
 							<li>Thuế <span>{{Cart::tax(0).' '.'vnđ'}}</span></li>
 							<li>Phí vận chuyển <span>Free</span></li>
 							<li>Thành tiền <span>{{Cart::total(0).' '.'vnđ'}}</span></li>
+							<br>
+						</form>
+						@if(Session::get('cart'))
+						<tr><td>
+							<form method="GET" action="{{URL::to('/check-coupon')}}">
+								@csrf
+								<input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"/><br>
+								<input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
+								@if(Session::get('coupon'))
+								<a class="btn btn-default check_out" href="{{url('/unset-coupon')}}">xóa mã</a>
+								@endif
+							</form>
+						</td>
+					</tr>
+					    @endif
 						</ul>
+						
 						<?php
 								   $customer_id = Session::get('customer_id');
 								   if($customer_id!=NULL){

@@ -107,7 +107,7 @@
 								<?php
 								   }
 								   ?>
-								<li><a href="{{URL::to('/show-cart-ajax')}}"><i class="fa fa-shopping-cart"></i>giỏ hàng</a></li>
+								<li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i>giỏ hàng</a></li>
 								<?php
 								   $customer_id = Session::get('customer_id');
 								   if($customer_id!=NULL){

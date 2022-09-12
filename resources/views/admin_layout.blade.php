@@ -98,6 +98,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                        
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Mã giảm giá</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/insert-coupon')}}">Quản lý giảm giá</a></li>
+						<li><a href="{{URL::to('/list-coupon')}}">Liệt kê mã giảm giá</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Vận Chuyển</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/delivery')}}">Quản lý Vận Chuyển</a></li>
+                       
+                    </ul>
+                </li>
 
                 <li class="sub-menu">
                     <a href="javascript:;">
@@ -158,6 +180,71 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
 <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+    fetch_delivery();
+
+function fetch_delivery(){
+    var _token = $('input[name="_token"]').val();
+     $.ajax({
+        url : '{{url('/select-feeship')}}',
+        method: 'POST',
+        data:{_token:_token},
+        success:function(data){
+           $('#load_delivery').html(data);
+        }
+    });
+}
+
+
+    $('.add_delivery').click(function(){
+        var city = $('.city').val();
+        var province = $('.province').val();
+        var wards = $('.wards').val();
+        var fee_ship = $('.fee_ship').val();
+        var _token = $('input[name="_token"]').val();
+      //  alert(city);
+      //  alert(province);
+      //  alert(wards);
+      //  alert(fee_ship);
+
+        $.ajax({
+          url : '{{url('/insert-delivery')}}',
+          method: 'POST',
+            data:{city:city,province:province,_token:_token,wards:wards,fee_ship:fee_ship},
+           success:function(data){
+            fetch_delivery();
+          }
+          });
+    });
+
+       $('.choose').on('change',function(){
+           var action = $(this).attr('id');
+           var ma_id = $(this).val();
+           var _token = $('input[name="_token"]').val();
+           var $result = '';
+          // alert(action);
+          // alert(matp);
+          // alert(_token);
+           if(action=='city'){
+               result='province';
+           }else{
+           result='wards';
+           }
+           $.ajax({
+          url : '{{url('/select-delivery')}}',
+          method: 'POST',
+            data:{action:action,ma_id:ma_id,_token:_token},
+           success:function(data){
+          $('#'+result).html(data);
+          }
+          });
+       });
+    
+    })
+
+</script>
 <script type="text/javascript">
     $.validate({
 

@@ -90,3 +90,18 @@ Route::get('/view-order/{orderId}','App\Http\controllers\CheckoutController@view
 
 //sendmail
 Route::get('/send-mail','App\Http\controllers\HomeController@send_mail');
+
+//coupon
+Route::get('/unset-coupon','App\Http\controllers\CouponController@unset_coupon');
+Route::get('/check-coupon','App\Http\controllers\CartController@check_coupon');
+Route::get('/insert-coupon','App\Http\controllers\CouponController@insert_coupon');
+Route::get('/list-coupon','App\Http\controllers\CouponController@list_coupon');
+Route::post('/insert-coupon-code','App\Http\controllers\CouponController@insert_coupon_code');
+Route::get('/delete-coupon/{coupon_id}','App\Http\controllers\CouponController@delete_coupon');
+
+
+//Delivery
+Route::get('/delivery','App\Http\controllers\DeliveryController@delivery');
+Route::post('/select-delivery','App\Http\controllers\DeliveryController@select_delivery');
+Route::post('/insert-delivery','App\Http\controllers\DeliveryController@insert_delivery');
+Route::post('/select-feeship','App\Http\controllers\DeliveryController@select_feeship');

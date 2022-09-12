@@ -21,14 +21,15 @@
 						</tr>
 					</thead>
 					<tbody>
-                    @foreach(Session::get('cart') as $key) => $cart)
+                        @foreach(Session::get('cart') as $key => $cart)
 						<tr>
 							<td class="cart_product">
 								<img src="" width="50" alt="">
+
 							</td>
 							<td class="cart_description">
 								<h4><a href=""></a></h4>
-								<p>{{$cart->cart_product_name}}</p>
+								<p>{{Session()->get('product_name')}}</p>
 							</td>
 							<td class="cart_price">
 								<p></p>

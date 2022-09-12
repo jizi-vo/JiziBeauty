@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cart;
 use DB;
+use App\Models\Coupon;
 use Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 class CartController extends Controller
 {
+  
    public function show_cart_ajax(Request $request){
       $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
       $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
@@ -84,5 +86,39 @@ class CartController extends Controller
       $qty = $request->cart_quantity;
       Cart::update($rowId,$qty);
       return Redirect::to('/show-cart');
+   }
+
+   public function check_coupon(Request $request){
+      $data = $request->all();
+      $coupon = Coupon::where('coupon_code',$data['coupon'])->first();
+      if($coupon){
+         $count_coupon = $coupon->count();
+         if($count_coupon>0){
+            $coupon_session = Session::get('coupon');
+            if($coupon_session==true){
+               $is_avaiable = 0;
+               if($is_avaiable==0){
+                  $cou[] = array(
+                     'coupon_code' => $coupon->coupon_code,
+                     'coupon_condition' => $coupon->coupon_condition,
+                     'coupon_number' => $coupon->coupon_number,
+                  );
+                  Session::put('coupon',$cou);
+               }
+            }else{
+               $cou[] = array(
+                  'coupon_code' => $coupon->coupon_code,
+                  'coupon_condition' => $coupon->coupon_condition,
+                  'coupon_number' => $coupon->coupon_number,
+               );
+               Session::put('coupon',$cou);
+            }
+            Session::save();
+            return redirect()->back()->with('message','Thêm mã giảm giá thành công');
+         }
+      }else{
+         return redirect()->back()->with('error','mã giảm giá không đúng');
+      }
+
    }
 }
