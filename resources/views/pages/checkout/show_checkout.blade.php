@@ -34,8 +34,6 @@
 							
 						</div>
 					</div>
-								
-				</div>
 			</div>
 			<div class="review-payment">
 				<h2>Xem lại giỏ hàng</h2>

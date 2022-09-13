@@ -85,6 +85,10 @@ Route::get('/payment','App\Http\controllers\CheckoutController@payment');
 Route::post('/order-place','App\Http\controllers\CheckoutController@order_place');
 
 //order
+Route::get('/managee-order','App\Http\controllers\OrderController@managee_order');
+Route::get('/view-order/{order_code}','App\Http\controllers\CheckoutController@view_order');
+
+
 Route::get('/manage-order','App\Http\controllers\CheckoutController@manage_order');
 Route::get('/view-order/{orderId}','App\Http\controllers\CheckoutController@view_order');
 
@@ -105,3 +109,7 @@ Route::get('/delivery','App\Http\controllers\DeliveryController@delivery');
 Route::post('/select-delivery','App\Http\controllers\DeliveryController@select_delivery');
 Route::post('/insert-delivery','App\Http\controllers\DeliveryController@insert_delivery');
 Route::post('/select-feeship','App\Http\controllers\DeliveryController@select_feeship');
+
+
+
+
