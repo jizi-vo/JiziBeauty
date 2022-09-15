@@ -8,9 +8,11 @@ use App\Models\Feeship;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Shipping;
-
+use App\Models\Coupon;
+use PDF;
 class OrderController extends Controller
 {
+   
     public function view_order($order_code){
 		$order_details = OrderDetails::with('product')->where('order_code',$order_code)->get();
 		$order = Order::where('order_code',$order_code)->get();

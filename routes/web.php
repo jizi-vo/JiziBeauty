@@ -85,6 +85,7 @@ Route::get('/payment','App\Http\controllers\CheckoutController@payment');
 Route::post('/order-place','App\Http\controllers\CheckoutController@order_place');
 
 //order
+
 Route::get('/managee-order','App\Http\controllers\OrderController@managee_order');
 Route::get('/view-order/{order_code}','App\Http\controllers\CheckoutController@view_order');
 
@@ -112,4 +113,7 @@ Route::post('/select-feeship','App\Http\controllers\DeliveryController@select_fe
 
 
 
-
+//Banner
+Route::get('/manage-banner','App\Http\controllers\sliderController@manage_banner');
+Route::get('/add-slider','App\Http\controllers\sliderController@add_slider');
+Route::post('/insert-slider','App\Http\controllers\sliderController@insert_slider');
