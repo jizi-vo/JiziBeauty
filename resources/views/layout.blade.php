@@ -148,8 +148,14 @@
 										 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
-                                </li> 
+								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+									<ul role="menu" class="sub-menu">
+										@foreach($category_post as $key => $danhmucbaiviet)
+                                        <li><a href="{{URL::to('/danh-muc-bai-viet'.$danhmucbaiviet)}}">{{$danhmucbaiviet->cate_post_name}}</a></li>
+										 @endforeach
+                                    </ul>
+								
+								</li> 
 								<li><a href="{{URL::to('/show-cart')}}">Giỏ hàng</a></li>
 								<li><a href="contact-us.html">Liên hệ</a></li>
 							</ul>
@@ -181,26 +187,18 @@
 						</ol>
 						
 						<div class="carousel-inner">
-							@php
-								$i = 0;
-							@endphp
-							@foreach($slider as $key =>$slide)
-							@php
-							   $i++;
-							@endphp
-							<div class="item {{$i==1 ? 'active' : ''}}">
+							<div class="item active">
 								<div class="col-sm-6">
 									<h1><span>Hanna</span>Beauty</h1>
 									<h2>Innisfree</h2>
 									<p>nnisfree được thành lập vào tháng 1 năm 2000, là thương hiệu mỹ phẩm thừa hưởng những tinh túy của thiên nhiên từ đảo Jeju, hòn đảo tràn ngập trong không khí trong lành và tươi mát. Jeju được UNESCO công nhận là di sản thiên nhiên thế giới đầu tiên của Hàn Quốc.</p>
-									<p>{{$slide->slider_desc}}</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="public/upload/slider/{{ $slide->slider_image }}" height="500" width="500">
+									<img src="{{asset('public/frontend/images/63.jpg')}}" class="girl img-responsive" alt="" />
+									<img src="{{asset('public/frontend/images/')}}"  class="pricing" alt="" />
 								</div>
 							</div>
-							@endforeach
 							<div class="item">
 								<div class="col-sm-6">
 									<h1><span>Hanna</span>BEAUTY</h1>

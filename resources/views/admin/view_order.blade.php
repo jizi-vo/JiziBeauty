@@ -130,11 +130,18 @@
           <tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
             <td>{{$order_by_id->product_name}}</td>
-            <td>{{$order_by_id->product_sales_quantity}}</td>
+            <td><input type="number" min="1" value="{{$order_by_id->product_sales_quantity}}" name="product_sales_quantity">
+            <button class="btn btn-default"  name="update_quantity">Cập nhật</button></td>
             <td>{{$order_by_id->product_price}}</td>
             <td>{{$order_by_id->product_price*$order_by_id->product_sales_quantity}}</td>
           </tr>
-         
+           <tr>
+            <td colspan="2">
+              <select class="form-control">
+              <option value="2">Đã Xử Lý-Đã giao hàng</option>
+              <option value="3">Hủy đơn hàng</option></select>
+            </td>
+           </tr>
         </tbody>
       </table>
       

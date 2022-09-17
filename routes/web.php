@@ -117,3 +117,16 @@ Route::post('/select-feeship','App\Http\controllers\DeliveryController@select_fe
 Route::get('/manage-banner','App\Http\controllers\sliderController@manage_banner');
 Route::get('/add-slider','App\Http\controllers\sliderController@add_slider');
 Route::post('/insert-slider','App\Http\controllers\sliderController@insert_slider');
+
+
+//Post
+Route::get('/add-category-post','App\Http\controllers\CategoryPost@add_category_post');
+Route::get('/all-category-post','App\Http\controllers\CategoryPost@all_category_post');
+Route::post('/save-category-post','App\Http\controllers\CategoryPost@save_category_post');
+Route::get('/danh-muc-bai-viet','App\Http\controllers\CategoryPost@danh_muc_bai_viet');
+Route::get('/edit-category-post/{category_post_id}','App\Http\controllers\CategoryPost@edit_category_post');
+Route::post('/update-category-post/{cate_id}','App\Http\controllers\CategoryPost@update_category_post');
+Route::get('/delete-category-post/{cate_id}','App\Http\controllers\CategoryPost@delete_category_post');
+
+//post1
+Route::get('/add-post','App\Http\controllers\PostController@add_post');

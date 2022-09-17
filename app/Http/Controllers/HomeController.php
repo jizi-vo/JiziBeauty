@@ -7,6 +7,7 @@ use DB;
 use Mail;
 use Session;
 use App\Models\Slider;
+use App\Models\CatePost;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 session_start();
@@ -24,6 +25,8 @@ class HomeController extends Controller
     return redirect('/')->with('message','');
 }
     public function index(){
+
+       $category_post = CatePost::orderBy('cate_post_id','DESC')->get();
     
         $slider = Slider::orderBy('slider_id','DESC')->take(4)->get();
 
@@ -31,7 +34,7 @@ class HomeController extends Controller
         $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
         $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
         $all_product = DB::table('tbl_product')->where('product_status','0')->orderby('product_id','desc')->limit(6)->get();
-        return view('pages.home')->with('category',$cate_product)->with('brand',$brand_product)->with('all_product',$all_product)->with('slider',$slider);
+        return view('pages.home')->with('category',$cate_product)->with('brand',$brand_product)->with('all_product',$all_product)->with('slider',$slider)->with('category_post',$category_post);
     }
     public function search(Request $request){
         $keywords = $request->keywords_submit;
