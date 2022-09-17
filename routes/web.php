@@ -130,3 +130,6 @@ Route::get('/delete-category-post/{cate_id}','App\Http\controllers\CategoryPost@
 
 //post1
 Route::get('/add-post','App\Http\controllers\PostController@add_post');
+Route::post('/save-post','App\Http\controllers\PostController@save_post');
+Route::get('/all-post','App\Http\controllers\PostController@all_post');
+Route::get('/delete-post/{post_id}','App\Http\controllers\PostController@delete_post');

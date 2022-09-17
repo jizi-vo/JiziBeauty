@@ -15,11 +15,11 @@
 	                    }
 	                     ?>
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/save-brand-product')}}" method="post">
+                                <form role="form" action="{{URL::to('/save-post')}}" method="post" enctype="multipart/form-data">
                                   {{csrf_field()}}
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên bài viết</label>
-                                    <input type="text" name="post_title" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
+                                    <input type="text" name="post_title" value="{{old('post_title')}}" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Tóm tắt Bài Viết</label>
@@ -57,7 +57,7 @@
                                       <option value="1">Hiển thị</option>
                                  </select>
                                 </div>
-                                <button type="submit" name="add_category_product" class="btn btn-info">Thêm thương hiệu</button>
+                                <button type="submit" name="add_category_product" class="btn btn-info">Thêm Bài Viết</button>
                             </form>
                             </div>
 
