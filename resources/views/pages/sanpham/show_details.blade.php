@@ -5,31 +5,8 @@
 						<div class="col-sm-5">
 							<div class="view-product">
 								<img src="{{URL::to('/public/upload/product/'.$value->product_image)}}" alt="" />
-								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
-								
-								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
-										<div class="item active">
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar1.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar2.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar3.jpg')}}" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar1.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar2.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar3.jpg')}}" alt=""></a>
-										</div>
-										<div class="item">
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar1.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar2.jpg')}}" alt=""></a>
-										  <a href=""><img src="{{URL::to('public/frontend/images/similar3.jpg')}}" alt=""></a>
-										</div>
-										
-									</div>
-
-								  <!-- Controls -->
 								  <a class="left item-control" href="#similar-product" data-slide="prev">
 									<i class="fa fa-angle-left"></i>
 								  </a>
@@ -89,9 +66,22 @@
 										<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
 										<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
 									</ul>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									<p><b>Write Your Review</b></p>
+									<style type="text/css">
+									.style_comment {
+                                        border: 1px solid #ddd;
+										border-radius: 10px;
+										background: #F0F0E9;
+
+									}
+									</style>
 									
+									<div class="row style_comment">
+                                     <div class="col-md-3">
+										<img width="30%" src="{{asset('public/frontend/images/34.jpg')}}" class="img img-responsive img-thumbail">
+									 </div>
+									 <div class="col-md-9">Find 55245 Avatar images and millions more royalty free PNG & vector images from the world's most diverse collection of free icons.</div>
+									</div>
+									<p><b>Viết đánh giá của bạn </b></p>
 									<form action="#">
 										<span>
 											<input type="text" placeholder="Your Name"/>

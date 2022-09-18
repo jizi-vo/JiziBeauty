@@ -73,4 +73,5 @@ class PostController extends Controller
         Session::put('message','xóa  bài viết thành công');
         return redirect()->back();
     }
+    
 }

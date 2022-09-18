@@ -14,6 +14,9 @@
 	<link href="{{asset('public/frontend/css/main.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/responsive.css')}}" rel="stylesheet">
 	<link href="{{asset('public/frontend/css/sweetalert.css')}}" rel="stylesheet">
+	<link href="{{asset('public/frontend/css/lightgallery.min.css')}}" rel="stylesheet">
+	<link href="{{asset('public/frontend/css/lightslider.css')}}" rel="stylesheet">
+	<link href="{{asset('public/frontend/css/prettify.css')}}" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -150,9 +153,7 @@
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										@foreach($category_post as $key => $danhmucbaiviet)
-                                        <li><a href="{{URL::to('/danh-muc-bai-viet'.$danhmucbaiviet)}}">{{$danhmucbaiviet->cate_post_name}}</a></li>
-										 @endforeach
+										
                                     </ul>
 								
 								</li> 
@@ -456,6 +457,28 @@
     <script src="{{asset('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('public/frontend/js/main.js')}}"></script>
 	<script src="{{asset('public/frontend/js/sweetalert.min.js')}}"></script>
+	<script src="{{asset('public/frontend/js/lightgallery-all.min.js')}}"></script>
+	<script src="{{asset('public/frontend/js/lightslider.js')}}"></script>
+	<script src="{{asset('public/frontend/js/prettify.js')}}"></script>
+
+	<script type="text/javascript">
+ $(document).ready(function() {
+    $('#imageGallery').lightSlider({
+        gallery:true,
+        item:1,
+        loop:true,
+        thumbItem:9,
+        slideMargin:0,
+        enableDrag: false,
+        currentPagerPosition:'left',
+        onSliderLoad: function(el) {
+            el.lightGallery({
+                selector: '#imageGallery .lslide'
+            });
+        }   
+    });  
+  });
+	</script>
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
