@@ -136,3 +136,7 @@ Route::get('/delete-post/{post_id}','App\Http\controllers\PostController@delete_
 
 //danhmucbaiviet
 Route::get('/danh-muc-bai-viet','App\Http\controllers\PostController@danh_muc_bai_viet');
+
+//comment
+Route::post('/load-comment','App\Http\controllers\ProductController@load_comment');
+Route::post('/send-comment','App\Http\controllers\ProductController@send_comment');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use App\Models\Comment;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 session_start();
@@ -17,6 +18,40 @@ class ProductController extends Controller
         }else{
             return Redirect::to('admin')->send();
         }
+    }
+    public function send_comment(Request $request){
+        $product_id = $request->product_id;
+        $comment_name = $request->comment_name;
+        $comment_content = $request->comment_content;
+        $comment = new Comment();
+        $comment->comment = $comment_content;
+        $comment->comment_name = $comment_name;
+        $comment->comment_product_id = $product_id;
+        $comment->comment_status = 1;
+        $comment->save();
+    }
+    public function load_comment(Request $request){
+        $product_id = $request->product_id;
+        $comment = Comment::where('comment_product_id',$product_id)->where('comment_status',0)->get();
+        $output='';
+        foreach($comment as $key => $comm){
+            $output.= '
+            
+            <div class="row style_comment">
+                                     <div class="col-md-3">
+										
+										<img width="55%" src="'.url('public/frontend/images/53176.png').'" class="img img-responsive img-thumbail">
+									 </div>
+									 <div class="col-md-9">
+										<p style="color:aquamarine;">@'.$comm->comment_name.'</p>
+                                        <p style="color:#000;">@'.$comm->comment_date.'</p>
+										<p>'.$comm->comment.'</p>
+									</div>
+									</div>
+            
+            ';
+        }
+        echo $output;
     }
     public function add_product(){
         $this->AuthLogin();

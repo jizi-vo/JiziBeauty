@@ -47,19 +47,19 @@
 					<div class="category-tab shop-details-tab"><!--category-tab-->
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#details" data-toggle="tab">Mô Tả</a></li>
+								<li class=""><a href="#details" data-toggle="tab">Mô Tả</a></li>
 								<li><a href="#companyprofile" data-toggle="tab">chi tiết sản phẩm</a></li>
-								<li class=""><a href="#reviews" data-toggle="tab">Dánh giá</a></li>
+								<li class="active"><a href="#reviews" data-toggle="tab">Dánh giá</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
-							<div class="tab-pane fade active in" id="details" >
+							<div class="tab-pane" id="details" >
 								<p>{!!$value->product_desc!!}</p>
                             </div>
-							<div class="tab-pane fade" id="companyprofile" >
+							<div class="tab-pane fade " id="companyprofile" >
 							<p>{!!$value->product_content!!}</p>
                              </div>
-							<div class="tab-pane fade " id="reviews" >
+							<div class="tab-pane fade active in " id="reviews" >
 								<div class="col-sm-12">
 									<ul>
 										<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
@@ -71,25 +71,23 @@
                                         border: 1px solid #ddd;
 										border-radius: 10px;
 										background: #F0F0E9;
-
 									}
 									</style>
-									
-									<div class="row style_comment">
-                                     <div class="col-md-3">
-										<img width="30%" src="{{asset('public/frontend/images/34.jpg')}}" class="img img-responsive img-thumbail">
-									 </div>
-									 <div class="col-md-9">Find 55245 Avatar images and millions more royalty free PNG & vector images from the world's most diverse collection of free icons.</div>
-									</div>
+									<form>
+										@csrf
+										<input type="hidden" name="comment_product_id" class="comment_product_id" value="{{$value->product_id}}">
+										<div id="comment_show"></div>
+									<p></p>
+									</form>
 									<p><b>Viết đánh giá của bạn </b></p>
 									<form action="#">
 										<span>
-											<input type="text" placeholder="Your Name"/>
-											<input type="email" placeholder="Email Address"/>
+											<input style="width:100%;margin-left:0" type="text" class="comment_name" placeholder="Tên bình luận"/>
 										</span>
-										<textarea name="" ></textarea>
-										<b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
-										<button type="button" class="btn btn-default pull-right">
+										<textarea name="comment" class="comment_content" placeholder="Nội dung bình luận"></textarea>
+										<div id="notify_comment"></div>
+										<b>Đánh giá sao: </b> <img src="images/product-details/rating.png" alt="" />
+										<button type="button" class="btn btn-default pull-right send-comment">
 											Submit
 										</button>
 									</form>
