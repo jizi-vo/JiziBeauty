@@ -184,6 +184,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
+                        <span> Bình Luận</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/comment')}}">Liệt kê Bình Luận</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
                         <span>Bài Viết</span>
                     </a>
                     <ul class="sub">

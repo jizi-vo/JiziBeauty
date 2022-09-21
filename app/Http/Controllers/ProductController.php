@@ -19,6 +19,10 @@ class ProductController extends Controller
             return Redirect::to('admin')->send();
         }
     }
+    public function list_comment(){
+        $comment = Comment::with('product')->orderBy('comment_status','DESC')->get();
+        return view('admin.comment.list_comment')->with(compact('comment'));
+    }
     public function send_comment(Request $request){
         $product_id = $request->product_id;
         $comment_name = $request->comment_name;

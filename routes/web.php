@@ -139,4 +139,5 @@ Route::get('/danh-muc-bai-viet','App\Http\controllers\PostController@danh_muc_ba
 
 //comment
 Route::post('/load-comment','App\Http\controllers\ProductController@load_comment');
+Route::get('/comment','App\Http\controllers\ProductController@list_comment');
 Route::post('/send-comment','App\Http\controllers\ProductController@send_comment');
