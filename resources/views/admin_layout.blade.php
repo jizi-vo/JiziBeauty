@@ -255,10 +255,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
    
     $('.btn-reply-comment').click(function(){
-        var comment = $('.reply_comment').val();
         var comment_id = $(this).data('comment_id');
-        var comment_product_id = $(this).attr('id');
-        
+        var comment = $('.reply_comment_'+comment_id).val();
+        var comment_product_id = $(this).data('product_id');
         $.ajax({
           url:"{{url('/reply-comment')}}",
           method:'POST',
@@ -267,7 +266,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             },
             data:{comment:comment,comment_id:comment_id,comment_product_id:comment_product_id},
            success:function(data){
-            $('.reply_comment').val('');
+            $('.reply_comment_'+comment_id).val('');
             $('#notify_comment').html('<span class="text text-alert">Trả lời bình luận thành công</span>');
           }
           });

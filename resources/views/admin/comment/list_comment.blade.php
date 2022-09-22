@@ -41,8 +41,8 @@
             <td>{{ $comm->comment}}
                 @if($comm->comment_status==0)
 
-                <textarea class="form-control reply_comment" rows="5"></textarea>
-                <br><button class="btn btn-default btn-xs btn-reply-comment" id="{{$comm->comment_product_id}}" data-comment_id="{{$comm->comment_id}}">Trả lời bình luận</button>
+                <textarea class="form-control reply_comment_{{$comm->comment_id}}" rows="5"></textarea>
+                <br><button class="btn btn-default btn-xs btn-reply-comment" data-product_id="{{$comm->comment_product_id}}" data-comment_id="{{$comm->comment_id}}">Trả lời bình luận</button>
              @endif
         
             </td>
