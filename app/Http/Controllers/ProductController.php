@@ -19,6 +19,23 @@ class ProductController extends Controller
             return Redirect::to('admin')->send();
         }
     }
+
+    public function allow_comment(Request $request){
+        $data = $request->all();
+        $comment = Comment::find($data['comment_id']);
+        $comment->comment_status = $data['comment_status'];
+        $comment->save();
+    }
+    public function reply_comment(Request $request){
+         $data = $request->all();
+         $comment = new Comment();
+         $comment->comment = $data['comment'];
+         $comment->comment_product_id = $data['comment_product_id'];
+         $comment->coment_parent_coment = $data['comment_id'];
+         $comment->comment_status=0;
+         $comment->comment_name='JiziStore';
+         $comment->save();
+    }
     public function list_comment(){
         $comment = Comment::with('product')->orderBy('comment_status','DESC')->get();
         return view('admin.comment.list_comment')->with(compact('comment'));

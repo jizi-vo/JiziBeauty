@@ -6,7 +6,7 @@
     <div class="panel-heading">
        Liệt kê  Comment
     </div>
-   
+    <div id="notify_comment"></div> 
     <div class="table-responsive">
     <?php
 	                    $message = Session::get('message');
@@ -32,15 +32,19 @@
           <tr>
             <td>
                 @if($comm->comment_status==1)
-                   <input type="button" data-comment_id="{{$comm->comment_id}}" id="{{$comm->comment_product_id}}" class="btn btn-primary comment_duyet_btn" value="Duyệt">
+                   <input type="button" data-comment_status="0" data-comment_id="{{$comm->comment_id}}" id="{{$comm->comment_product_id}}" class="btn btn-primary comment_duyet_btn" value="Duyệt">
                 @else
-                <input type="button" data-comment_id="{{$comm->comment_id}}" id="{{$comm->comment_product_id}}" class="btn btn-danger comment_boduyet_btn" value="Bỏ Duyệt">
+                <input type="button" data-comment_status="1" data-comment_id="{{$comm->comment_id}}" id="{{$comm->comment_product_id}}" class="btn btn-danger comment_duyet_btn" value="Bỏ Duyệt">
                 @endif
             </td>
             <td>{{ $comm->comment_name}}</td>
             <td>{{ $comm->comment}}
-             <textarea rows="3"></textarea>
-             <br><button>Trả lời bình luận</button>
+                @if($comm->comment_status==0)
+
+                <textarea class="form-control reply_comment" rows="5"></textarea>
+                <br><button class="btn btn-default btn-xs btn-reply-comment" id="{{$comm->comment_product_id}}" data-comment_id="{{$comm->comment_id}}">Trả lời bình luận</button>
+             @endif
+        
             </td>
             <td>{{ $comm->comment_date}}</td>
             <td><a href="{{url('/chi-tiet/'.$comm->product->product_name)}}" target="_blank">{{ $comm->product->product_name}}</a></td>
