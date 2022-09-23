@@ -39,6 +39,13 @@
             </td>
             <td>{{ $comm->comment_name}}</td>
             <td>{{ $comm->comment}}
+              <ul>
+                @foreach($comment_rep as $key => $comm_reply)
+                    @if($comm_reply->coment_parent_coment==$comm->comment_id)
+                <li>Trả lời:{{$comm_reply->comment}}</li>
+                     @endif
+                @endforeach
+              </ul>
                 @if($comm->comment_status==0)
 
                 <textarea class="form-control reply_comment_{{$comm->comment_id}}" rows="5"></textarea>

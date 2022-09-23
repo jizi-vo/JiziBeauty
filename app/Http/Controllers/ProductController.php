@@ -37,8 +37,9 @@ class ProductController extends Controller
          $comment->save();
     }
     public function list_comment(){
-        $comment = Comment::with('product')->orderBy('comment_status','DESC')->get();
-        return view('admin.comment.list_comment')->with(compact('comment'));
+        $comment = Comment::with('product')->where('coment_parent_coment','=',0)->orderBy('comment_status','DESC')->get();
+        $comment_rep = Comment::with('product')->where('coment_parent_coment','>',0)->get();
+        return view('admin.comment.list_comment')->with(compact('comment','comment_rep'));
     }
     public function send_comment(Request $request){
         $product_id = $request->product_id;
@@ -49,11 +50,13 @@ class ProductController extends Controller
         $comment->comment_name = $comment_name;
         $comment->comment_product_id = $product_id;
         $comment->comment_status = 1;
+        $comment->coment_parent_coment = 0;
         $comment->save();
     }
     public function load_comment(Request $request){
         $product_id = $request->product_id;
-        $comment = Comment::where('comment_product_id',$product_id)->where('comment_status',0)->get();
+        $comment = Comment::where('comment_product_id',$product_id)->where('coment_parent_coment','=',0)->where('comment_status',0)->get();
+        $comment_rep = Comment::with('product')->where('coment_parent_coment','>',0)->get();
         $output='';
         foreach($comment as $key => $comm){
             $output.= '
@@ -68,12 +71,27 @@ class ProductController extends Controller
                                         <p style="color:#000;">@'.$comm->comment_date.'</p>
 										<p>'.$comm->comment.'</p>
 									</div>
-									</div>
-            
-            ';
+									</div><p></p>
+                                    ';
+                                    foreach($comment_rep as $key => $rep_comment){
+                                       if($rep_comment->coment_parent_coment==$comm->comment_id){
+                                    $output.='<div class="row style_comment" style="margin:5px 40px">
+                                    <div class="col-md-3">
+                                       
+                                       <img width="30%" src="'.url('public/frontend/images/147137.png').'" class="img img-responsive img-thumbail">
+                                    </div>
+                                    <div class="col-md-9">
+                                       <p style="color:aquamarine;">@Jizi</p>
+                                       <p style="color:#000;">'.$rep_comment->comment.'</p>
+                                       <p></p>
+                                   </div>
+                                   </div>';
+        }
+    }
         }
         echo $output;
     }
+
     public function add_product(){
         $this->AuthLogin();
         $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
