@@ -36,8 +36,8 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> 0826483963</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> hannabeauty@gmail.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i>09637447647</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i>votranhuyentran@gmail.com</a></li>
 							</ul>
 						</div>
 					</div>
