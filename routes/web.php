@@ -143,3 +143,7 @@ Route::get('/comment','App\Http\controllers\ProductController@list_comment');
 Route::post('/send-comment','App\Http\controllers\ProductController@send_comment');
 Route::post('/allow-comment','App\Http\controllers\ProductController@allow_comment');
 Route::post('/reply-comment','App\Http\controllers\ProductController@reply_comment');
+
+
+//lienhe
+Route::get('/lien_he','App\Http\controllers\ContactController@lien_he');

@@ -33,54 +33,6 @@
 						</div>
 						@endforeach
                          </div>
-                        <div class="category-tab"><!--category-tab-->
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tshirt" data-toggle="tab">Dưỡng da</a></li>
-								
-							</ul>
-						</div>
-						<div class="tab-content">
-							<div class="tab-pane fade active in" id="tshirt" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{asset('public/frontend/images/56.jfif')}}" alt=""  style="width:150px;height:200px;"  />
-												<h2>800,000 VNĐ</h2>
-												<p>Tẩy tế bào chết innisfree</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{asset('public/frontend/images/75.jpg')}}" alt="" style="width:150px;height:200px;" />
-													<h2>650,000 VNĐ</h2>
-													<p>Sữa rửa mặt innisfree</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-												</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{asset('public/frontend/images/79.jpg')}}" alt=""  style="width:150px;height:200px;"  />
-													<h2>700,000 VNĐ</h2>
-													<p>Kem dưỡng ẩm innisfree</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-												</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div><!--/category-tab-->
 					<div class="recommended_items"><!--recommended_items-->
 						<h2 class="title text-center">Sản phẩm liên quan</h2>
 						
@@ -91,9 +43,9 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="{{asset('public/frontend/images/56.jfif')}}" style="width:150px;height:200px;"  alt="" />
-													<h2>800,000 VNĐ</h2>
-													<p>Tẩy tế bào chết innisfree</p>
+													<img src="{{asset('public/frontend/images/89.jpg')}}" style="width:150px;height:200px;"  alt="" />
+													<h2>75,000 VNĐ</h2>
+													<p>Mặt nạ giấy nước ép thiên nhiên Jeju</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
@@ -104,9 +56,9 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="{{asset('public/frontend/images/75.jpg')}}" style="width:150px;height:200px;" alt="" />
-													<h2>650,000 VNĐ</h2>
-													<p>Sữa rửa mặt innisfree</p>
+													<img src="{{asset('public/frontend/images/4zPcG.jpg')}}" style="width:150px;height:200px;" alt="" />
+													<h2>600,000 VNĐ</h2>
+													<p>Laneige Light Sun Fluid SPF50+ PA+++</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
@@ -117,9 +69,9 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="{{asset('public/frontend/images/79.jpg')}}" style="width:150px;height:200px;"   alt="" />
-													<h2>700,000 VNĐ</h2>
-													<p>Kem dưỡng ẩm innisfree</p>
+													<img src="{{asset('public/frontend/images/042c.jpg')}}" style="width:150px;height:200px;"   alt="" />
+													<h2>245,000 VNĐ</h2>
+													<p>Klairs Gentle Black Deep Cleansing Oil</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
@@ -132,9 +84,9 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-												<img src="{{asset('public/frontend/images/69.png')}}" style="width:150px;height:200px;"   alt="" />
-													<h2>900,000 VNĐ</h2>
-													<p>dưỡng ẩm innisfree</p>
+												<img src="{{asset('public/frontend/images/5125.jpg')}}" style="width:150px;height:200px;"   alt="" />
+													<h2>149,000 VNĐ</h2>
+													<p>L'Oreal Paris UV Perfect SPF50+ PA+++</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
@@ -145,9 +97,9 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-												<img src="{{asset('public/frontend/images/79.jpg')}}" style="width:150px;height:200px;"   alt="" />
-													<h2>700,000 VNĐ</h2>
-													<p>rửa mặt innisfree</p>
+												<img src="{{asset('public/frontend/images/400ml.png')}}" style="width:150px;height:200px;"   alt="" />
+													<h2>199,000 VNĐ</h2>
+													<p>Neutrogena Deep Clean Micellar</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
@@ -158,9 +110,9 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-												<img src="{{asset('public/frontend/images/79.jpg')}}" style="width:150px;height:200px;"   alt="" />
-													<h2>400,000 VNĐ</h2>
-													<p>dưỡng da</p>
+												<img src="{{asset('public/frontend/images/loreal-1.jpeg')}}" style="width:150px;height:200px;"   alt="" />
+													<h2>159,000 VNĐ</h2>
+													<p>L'Oreal Paris 3-in-1 Micellar Water</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
 												
