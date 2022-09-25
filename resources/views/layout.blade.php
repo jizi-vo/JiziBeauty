@@ -61,37 +61,18 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="{{asset('public/frontend/images/2.jpg')}}" alt="" style="width:80px;height:50px;" /></a>
+							<a href="index.html"><img src="{{asset('public/frontend/images/e47e.png')}}" alt="" style="width:100px;height:70px;" /></a>
 						</div>
 						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
+							<h1 style="font-size:25px"> HANNA BEAUTY</h1>
+							<p>Women are always beautiful.</p>
 						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-user"></i>tài khoản</a></li>
-								<li><a href="#"><i class="fa fa-star"></i> yêu thích</a></li>
+								
 								<?php
 								   $customer_id = Session::get('customer_id');
 								   $shipping_id = Session::get('shipping_id');
@@ -267,16 +248,8 @@
 							</div>
 						</div><!--/brands_products-->
 						
-						<div class="price-range"><!--price-range-->
-							<h2>Price Range</h2>
-							<div class="well text-center">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
-							</div>
-						</div><!--/price-range-->
-						
 						<div class="shipping text-center"><!--shipping-->
-							<img src="images/home/shipping.jpg" alt="" />
+							<img src="{{asset('public/frontend/images/159.jpg')}}" height="600" width="255" alt="" />
 						</div><!--/shipping-->
 					
 					</div>
@@ -297,7 +270,7 @@
 					<div class="col-sm-2">
 						<div class="companyinfo">
 							<h2><span>Hanna</span>Beauty</h2>
-							<p>shop mang đến sản phẩm chất lượng hài lòng khách hàng</p>
+							<p>You are imperfect, permanently and inevitably flawed. And you are beautiful.</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
@@ -305,14 +278,14 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
+										<img src="{{asset('public/frontend/images/e47e.png')}}" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
 								<p>Hanna beauty 1</p>
-								<h2>24 DEC 2014</h2>
+								<h2>Địa Chỉ</h2>
 							</div>
 						</div>
 						
@@ -320,14 +293,14 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe2.png" alt="" />
+										<img src="{{asset('public/frontend/images/e47e.png')}}" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
 								<p>Hanna beauty2</p>
-								<h2>24 DEC 2014</h2>
+								<h2>Địa Chỉ</h2>
 							</div>
 						</div>
 						
@@ -335,14 +308,14 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe3.png" alt="" />
+										<img src="{{asset('public/frontend/images/e47e.png')}}" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
 								<p>Hanna beauty3</p>
-								<h2>24 DEC 2014</h2>
+								<h2>Địa Chi</h2>
 							</div>
 						</div>
 						
@@ -350,21 +323,15 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe4.png" alt="" />
+										<img src="{{asset('public/frontend/images/e47e.png')}}" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
 								<p>Hanna beauty4</p>
-								<h2>24 DEC 2014</h2>
+								<h2>Địa Chỉ</h2>
 							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 						</div>
 					</div>
 				</div>
@@ -376,60 +343,58 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Service</h2>
+							<h2>Hỗ Trợ</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Online Help</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Order Status</a></li>
-								<li><a href="#">Change Location</a></li>
-								<li><a href="#">FAQ’s</a></li>
+								<li><a href="#">Giải đáp thắc mắc</a></li>
+								<li><a href="#">Hướng dẫn mua hàng</a></li>
+								<li><a href="#">Thanh toán và vận chuyển</a></li>
+								<li><a href="#">chính sách đổi trả</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>Hanna Beauty</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
+								<li><a href="#">Neutrogena</a></li>
+								<li><a href="#">Innisfree</a></li>
+								<li><a href="#">Dior</a></li>
+								<li><a href="#">Dove</a></li>
+								<li><a href="#">Ohui</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Policies</h2>
+							<h2>Hệ thống cửa hàng</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
+								<li><a href="#">hannabeauty</a></li>
+								<li><a href="#">hannabeauty</a></li>
+								<li><a href="#">hannabeauty</a></li>
+								<li><a href="#">hannabeauty</a></li>
+								<li><a href="#">hannabeauty</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>About Beauty</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Company Information</a></li>
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Store Location</a></li>
-								<li><a href="#">Affillate Program</a></li>
-								<li><a href="#">Copyright</a></li>
+								<li><a href="#">Hệ Thống cửa hàng</a></li>
+								<li><a href="#">Giới thiệu shop</a></li>
+								<li><a href="#">Liên Kết</a></li>
+								<li><a href="#">Bảo Mật Thông Tin</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
 							<h2>About Shopper</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
-							</form>
+							<ul class="nav nav-pills nav-stacked">
+								<li><a href="#">Email:Votranhuyentranb1999@gmail.com</a></li>
+								<li><a href="#">Tel:09567843</a></li>
+								<li><a href="#">Website:www.beauty.com</a></li>
+							</ul>
 						</div>
 					</div>
 					
@@ -440,8 +405,8 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left"></p>
+					<p class="pull-right"></a></span></p>
 				</div>
 			</div>
 		</div>

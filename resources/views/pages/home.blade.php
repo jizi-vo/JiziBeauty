@@ -48,7 +48,7 @@
 													<p>Mặt nạ giấy nước ép thiên nhiên Jeju</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+												<img src="{{asset('public/frontend/images/sale.png')}}" class="new" alt="" />
 											</div>
 										</div>
 									</div>
@@ -61,7 +61,7 @@
 													<p>Laneige Light Sun Fluid SPF50+ PA+++</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+												<img src="{{asset('public/frontend/images/new.png')}}" class="new" alt="" />
 											</div>
 										</div>
 									</div>
@@ -89,7 +89,7 @@
 													<p>L'Oreal Paris UV Perfect SPF50+ PA+++</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+												<img src="{{asset('public/frontend/images/sale.png')}}" class="new" alt="" />
 											</div>
 										</div>
 									</div>
@@ -115,7 +115,7 @@
 													<p>L'Oreal Paris 3-in-1 Micellar Water</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
-												
+												<img src="{{asset('public/frontend/images/new.png')}}" class="new" alt="" />
 											</div>
 										</div>
 									</div>
