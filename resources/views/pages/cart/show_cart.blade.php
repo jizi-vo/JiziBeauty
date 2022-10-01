@@ -27,7 +27,7 @@
 					   @foreach($content as $v_content) 
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="{{URL::to('public/uploads/product/'.$v_content->options->image)}}" width="50" alt=""></a>
+								<a href=""><img src="{{URL::to('public/upload/product/'.$v_content->options->image)}}" width="50" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{$v_content->name}}</a></h4>
@@ -77,27 +77,28 @@
 							<li>Tổng<span>{{Cart::pricetotal(0).' '.'vnđ'}}</span></li>
 							@if(Session::get('coupon'))
 							<li>
+								
 								@foreach(Session::get('coupon') as $key => $cou)
-								@if($cou['coupon_condition']==1)
-									Mã giảm : {{$cou['coupon_number']}} %
-									<p>
-										@php 
-										$total_coupon = ($total*$cou['coupon_number'])/100;
-										echo '<p><li>Tổng giảm:'.number_format($total_coupon,0,',','.').'đ</li></p>';
-										@endphp
-									</p>
-									<p><li>Tổng đã giảm :{{number_format($total-$total_coupon,0,',','.')}}đ</li></p>
-								@elseif($cou['coupon_condition']==2)
-									Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} k
-									<p>
-										@php 
-										$total_coupon = $total - $cou['coupon_number'];
-						
-										@endphp
-									</p>
-									<p><li>Tổng đã giảm :{{number_format($total_coupon,0,',','.')}}đ</li></p>
-								@endif
-							@endforeach
+									@if($cou['coupon_condition']==1)
+										Mã giảm : {{$cou['coupon_number']}} %
+										<p>
+											@php 
+											$total_coupon = ($total*$cou['coupon_number'])/100;
+											echo '<p><li>Tổng giảm:'.number_format($total_coupon,0,',','.').'đ</li></p>';
+											@endphp
+										</p>
+										<p><li>Tổng đã giảm :{{number_format($total-$total_coupon,0,',','.')}}đ</li></p>
+									@elseif($cou['coupon_condition']==2)
+										Mã giảm : {{number_format($cou['coupon_number'],0,',','.')}} k
+										<p>
+											@php 
+											$total_coupon = $total - $cou['coupon_number'];
+							
+											@endphp
+										</p>
+										<p><li>Tổng đã giảm :{{number_format($total_coupon,0,',','.')}}đ</li></p>
+									@endif
+								@endforeach
 						
                             </li>
 							@endif 

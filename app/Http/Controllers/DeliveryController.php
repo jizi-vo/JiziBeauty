@@ -72,14 +72,14 @@ class DeliveryController extends Controller
                $output.='<option value="'.$province->maqh.'">'.$province->name_quanhuyen.'</option>';
                }
             }else{
-                $select_wards = wards::where('maqh',$data['ma_id'])->orderby('xaid','ASC')->get();
+                $select_wards = Wards::where('maqh',$data['ma_id'])->orderby('xaid','ASC')->get();
                 $output.='<option>----chọn xã phường---</option>';
                 foreach($select_wards as $key => $ward){
                 $output.='<option value="'.$ward->xaid.'">'.$ward->name_xaphuong.'</option>';
                 }
             }
+            echo $output;
         }
-         echo $output;
     }
 
 }

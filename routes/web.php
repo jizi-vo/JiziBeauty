@@ -146,4 +146,4 @@ Route::post('/reply-comment','App\Http\controllers\ProductController@reply_comme
 
 
 //lienhe
-Route::get('/lien_he','App\Http\controllers\ContactController@lien_he');
+Route::get('/lien-he','App\Http\controllers\ContactController@lien_he');

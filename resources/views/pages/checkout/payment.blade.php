@@ -33,7 +33,7 @@
 					   @foreach($content as $v_content) 
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="{{URL::to('public/uploads/product/'.$v_content->options->image)}}" width="50" alt=""></a>
+								<a href=""><img src="{{URL::to('public/upload/product/'.$v_content->options->image)}}" width="50" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{$v_content->name}}</a></h4>
@@ -73,13 +73,7 @@
 				{{csrf_field()}}
 			<div class="payment-options">
 					<span>
-						<label><input name="payment_option" value="1" type="checkbox"> Trả bằng thẻ ATM</label>
-					</span>
-					<span>
 						<label><input name="payment_option" value="2" type="checkbox">Nhận Tiền mặt</label>
-					</span>
-                    <span>
-						<label><input name="payment_option" value="3" type="checkbox">Thanh toán thẻ ghi nợ</label>
 					</span>
 				   <input type="submit" value="Đặt hàng" name="send_order_place" class="btn btn-primary btn-sm">
 				</div>
