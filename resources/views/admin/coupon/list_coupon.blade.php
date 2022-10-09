@@ -39,11 +39,14 @@
         <thead>
           <tr>
             <th>Tên mã giảm giá</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
             <th>Mã giảm giá</th>
             <th>Số lượng giảm giá</th>
             <th>Điều kiện giảm giá</th>
             <th>số giảm</th>
-           
+            <th>Tình Trạng</th>
+            <th>Hết hạn</th>
           </tr>
         </thead>
         <tbody>
@@ -51,6 +54,8 @@
           <tr>
             
             <td>{{$cou->coupon_name}}</td>
+            <td>{{$cou->coupon_date_start}}</td>
+            <td>{{$cou->coupon_date_end}}</td>
             <td>{{$cou->coupon_code}}</td>
             <td>{{$cou->coupon_time}}</td>
             <td><span class="text-ellipsis">
@@ -80,6 +85,27 @@
              }
              ?>
              </span></td>
+             <td><span class="text-ellipsis">
+              <?php
+               if($cou->coupon_status==1){
+                  ?>
+                  <span style="color:green">Đang kích hoạt</span>
+                <?php
+                }else{
+                  ?>
+                  <span style="color:red">Đã khóa</span>
+                <?php
+                }
+                ?>
+              </span>
+            </td>
+            <td>
+                @if($cou->coupon_date_end>=$today)
+                <span style="color:green">còn hạn</span>
+                @else 
+                <span style="color:green">Đã hết hạn</span>
+                @endif
+            </td>
             <td>
               <a onclick="return confirm('are you sure to delete?')" href="{{URL::to('/delete-coupon/'.$cou->coupon_id)}}" class="active" ui-toggle-class="">
               <i class="fa fa-times text-danger text"></i></a>

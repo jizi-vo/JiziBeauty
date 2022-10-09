@@ -2520,4 +2520,10 @@ h2.title {
   color: #FE980F;
 }
 
+span.badges {
+  background: red;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 14px;
+}
 

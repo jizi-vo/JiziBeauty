@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Redirect;
 session_start();
 class CartController extends Controller
 {
-  
    public function show_cart_ajax(Request $request){
       $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
       $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();

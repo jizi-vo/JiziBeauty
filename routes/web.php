@@ -147,3 +147,9 @@ Route::post('/reply-comment','App\Http\controllers\ProductController@reply_comme
 
 //lienhe
 Route::get('/lien-he','App\Http\controllers\ContactController@lien_he');
+
+
+//chart
+Route::post('/filter-by-date','App\Http\controllers\AdminController@filter_by_date');
+Route::post('/days-order','App\Http\controllers\AdminController@days_order');
+Route::post('/dashboard-filter','App\Http\controllers\AdminController@dashboard_filter');

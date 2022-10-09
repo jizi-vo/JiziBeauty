@@ -27,6 +27,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery2.0.3.min.js')}}"></script>
 <script src="{{asset('public/backend/js/raphael-min.js')}}"></script>
 <script src="{{asset('public/backend/js/morris.js')}}"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 </head>
 <body>
 <section id="container">
@@ -229,7 +231,109 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
 <script src="{{asset('public/backend/ckeditor/ckeditor.js')}}"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $("#start_coupon").datepicker({
+            preText:"Tháng trước",
+            nextText:"Tháng sau",
+            dateFormat:"dd/mm/yy",
+            dayNamesMin:[ "Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7","Chủ Nhật"],
+            duration:"slow"
+        });
+        $("#end_coupon").datepicker({
+            preText:"Tháng trước",
+            nextText:"Tháng sau",
+            dateFormat:"dd/mm/yy",
+            dayNamesMin:[ "Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7","Chủ Nhật"],
+            duration:"slow"
+        });
+    });
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+       chart30daysorder();
+       var chart = new Morris.Bar({
+            element:'chart',
+            lineColors:['#819C79','#fc8710','#FF6541','#A4ADD3','#766B56']
+            pointFillColors:['#ffffff'],
+            pointStrokeColors:['black'],
+              fillOpacity:0.6,
+              hideHover:'auto',
+              parseTime:false,
+              xkey:'period',
+              ykeys:['order','sales','profit','quantity'],
+              behaveLikeLine:true;
+              labels:['đơn hàng','doanh số','lợi nhuận','số lượng']
+         });
+         
+         function chart30daysorder(){
+            var _token = $('input[name="_token"]').val();
+             $.ajax({
+                url:"{{url('/days-order')}}",
+                method:"POST",
+                dataType:"JSON",
+                data:{_token:_token},
+                success:function(data)
+                {
+                  chart.setData(data);
+                }
+             });
+            }
+             $('.$dashboard-filter').change(function(){
+            var dashboard_value = $(this).val();
+            var _token = $('input[name="_token"]').val();
+             $.ajax({
+                url:"{{url('/dashboard-filter')}}",
+                method:"POST",
+                dataType:"JSON",
+                data:{dashboard_value:dashboard_value,_token:_token},
+                success:function(data)
+                {
+                    chart.setData(data);
+                }
+             });
+            });
+        $('#btn-dashboard-filter').click(function(){
+            var _token = $('input[name="_token"]').val();
+           var from_date = $('#datepicker').val();
+           var to_date = $('#datepicker2').val();
+               $.ajax({
+                url:"{{url('/filter-by-date')}}",
+                method:"POST",
+                dataType:"JSON",
+                data:{from_date:from_date,to_date:to_date,_token:_token},
+               success:function(data)
+                {
+                    chart.setData(data);
+                }
+           });
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(function(){
+        $("#datepicker").datepicker({
+            preText:"Tháng trước",
+            nextText:"Tháng sau",
+            dateFormat:"yy-mm-dd",
+            dayNamesMin:[ "Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7","Chủ Nhật"],
+            duration:"slow"
+        });
+        $("#datepicker2").datepicker({
+            preText:"Tháng trước",
+            nextText:"Tháng sau",
+            dateFormat:"yy-mm-dd",
+            dayNamesMin:[ "Thứ 2","Thứ 3","Thứ 4","Thứ 5","Thứ 6","Thứ 7","Chủ Nhật"],
+            duration:"slow"
+        });
+    });
+</script>
 
 <script type="text/javascript">
     $('.comment_duyet_btn').click(function(){
