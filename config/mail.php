@@ -16,7 +16,7 @@ return [
     'default' => env('MAIL_MAILER', 'smtp'),
 
     'stream'=>[
-    'tls'=> [
+    'ssl'=> [
         'allow_self_signed'=>true,
         'verify_peer'=>false,
         'verify_peer_name'=>false,
@@ -44,11 +44,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.googlemail.com'),
-            'port' => env('MAIL_PORT', 465),
+            'host' => env('MAIL_HOST','smtp.googlemail.com'),
+            'port' => env('MAIL_PORT',587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('JiziBeauty'),
-            'password' => env('101099706528'),
+            'username' => env('MAIL_USERNAME'),
+            'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
         ],
@@ -100,7 +100,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'votranhuyentranb961998@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'votranhuyentran1999@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'JiziBeauty'),
     ],
 

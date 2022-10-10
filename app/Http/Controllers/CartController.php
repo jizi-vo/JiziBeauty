@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Cart;
 use DB;
+use Carbon\Carbon;
 use App\Models\Coupon;
 use Session;
 use App\Http\Requests;
@@ -88,8 +89,9 @@ class CartController extends Controller
    }
 
    public function check_coupon(Request $request){
+      $today = Carbon::now('Asia/Ho_Chi_Minh')->format('d/m/Y');
       $data = $request->all();
-      $coupon = Coupon::where('coupon_code',$data['coupon'])->first();
+      $coupon = Coupon::where('coupon_code',$data['coupon'])->where('coupon_status',1)->where('coupon_date_end','>=',$today)->first();
       if($coupon){
          $count_coupon = $coupon->count();
          if($count_coupon>0){
@@ -116,7 +118,7 @@ class CartController extends Controller
             return redirect()->back()->with('message','Thêm mã giảm giá thành công');
          }
       }else{
-         return redirect()->back()->with('error','mã giảm giá không đúng');
+         return redirect()->back()->with('error','mã giảm giá không đúng-hoặc đã hết hạn');
       }
 
    }

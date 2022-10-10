@@ -153,3 +153,8 @@ Route::get('/lien-he','App\Http\controllers\ContactController@lien_he');
 Route::post('/filter-by-date','App\Http\controllers\AdminController@filter_by_date');
 Route::post('/days-order','App\Http\controllers\AdminController@days_order');
 Route::post('/dashboard-filter','App\Http\controllers\AdminController@dashboard_filter');
+
+//send-coupon
+Route::get('/mail-example','App\Http\controllers\MailController@mail_example');
+Route::get('/send-coupon','App\Http\controllers\MailController@send_coupon');
+Route::get('/send-mail','App\Http\controllers\MailController@send_mail');
