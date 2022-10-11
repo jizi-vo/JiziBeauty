@@ -158,3 +158,12 @@ Route::post('/dashboard-filter','App\Http\controllers\AdminController@dashboard_
 Route::get('/mail-example','App\Http\controllers\MailController@mail_example');
 Route::get('/send-coupon','App\Http\controllers\MailController@send_coupon');
 Route::get('/send-mail','App\Http\controllers\MailController@send_mail');
+
+//change languge
+Route::get('lang/{locale}',function($locale){
+    if(! in_array($locale,['en','vi','cn'])){
+        abort(404);
+    }
+    session()->put('locale',$locale);
+    return redirect()->back();
+});

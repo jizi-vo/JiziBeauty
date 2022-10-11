@@ -67,6 +67,17 @@
 							<h1 style="font-size:25px"> HANNA BEAUTY</h1>
 							<p>Women are always beautiful.</p>
 						</div>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+								@lang('lang.languge')
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="{{url('lang/vi')}}">Tiếng Việt</a></li>
+								<li><a href="{{url('lang/en')}}">Tiếng Anh</a></li>
+								<li><a href="{{url('lang/cn')}}">Tiếng Trung</a></li>
+							</ul>
+						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
@@ -91,7 +102,9 @@
 								<?php
 								   }
 								   ?>
-								<li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i>giỏ hàng</a></li>
+								<li class="cart-hover"><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i>
+									giỏ hàng
+								</a></li>
 								<?php
 								   $customer_id = Session::get('customer_id');
 								   if($customer_id!=NULL){
