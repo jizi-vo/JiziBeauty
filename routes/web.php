@@ -167,3 +167,6 @@ Route::get('lang/{locale}',function($locale){
     session()->put('locale',$locale);
     return redirect()->back();
 });
+
+//login google
+Route::get('/login-customer-google','App\Http\controllers\AdminController@login_customer_google');

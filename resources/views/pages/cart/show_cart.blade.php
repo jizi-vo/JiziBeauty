@@ -68,13 +68,13 @@
 		<div class="container">
 			<div class="heading">
 			
-			
+
 			</div>
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
 							
-							<li>Tổng<span>{{Cart::pricetotal(0).' '.'vnđ'}}</span></li>
+							<li>Gía sản phẩm<span>{{Cart::pricetotal(0).' '.'vnđ'}}</span></li>
 							@if(Session::get('coupon'))
 							<li>
 								
@@ -107,21 +107,8 @@
 							<li>Thành tiền <span>{{Cart::total(0).' '.'vnđ'}}</span></li>
 							<br>
 						</form>
-						@if(Session::get('cart'))
-						<tr><td>
-							<form method="GET" action="{{URL::to('/check-coupon')}}">
-								@csrf
-								<input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"/><br>
-								<input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
-								@if(Session::get('coupon'))
-								<a class="btn btn-default check_out" href="{{url('/unset-coupon')}}">xóa mã</a>
-								@endif
-							</form>
-						</td>
-					</tr>
-					    @endif
 						</ul>
-						
+
 						<?php
 								   $customer_id = Session::get('customer_id');
 								   if($customer_id!=NULL){
@@ -137,6 +124,22 @@
 							
 					</div>
 				</div>
+			</form>
+			@if(Session::get('cart'))
+			<tr><td>
+
+					<form method="GET" action="{{url('/check-coupon')}}">
+						@csrf
+							<input type="text" class="form-control" name="coupon" placeholder="Nhập mã giảm giá"><br>
+							  <input type="submit" class="btn btn-default check_coupon" name="check_coupon" value="Tính mã giảm giá">
+						  
+						  </form>
+					  </td>
+			</tr>
+			@endif
+
+		</table>
+
 			</div>
 		</div>
 	</section><!--/#do_action-->

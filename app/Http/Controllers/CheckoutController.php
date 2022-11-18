@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Cart;
 use DB;
 use Session;
+use Str;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 session_start();
+
 class CheckoutController extends Controller
 {
   public function AuthLogin(){
@@ -79,7 +81,7 @@ public function view_order($orderId){
    $data['payment_method'] = $request->payment_option;
    $data['payment_status'] = 'Dang cho xu ly';
    $payment_id = DB::table('tbl_payment')->insertGetId($data);
-   
+   $new_order_code = Str::uuid();   
 
    $order_data = array();
    $order_data['customer_id'] = Session::get('customer_id');
@@ -87,6 +89,9 @@ public function view_order($orderId){
    $order_data['payment_id']  = $payment_id;
    $order_data['order_total'] = cart::total();
    $order_data['order_status'] = 'Dang cho xu ly';
+   $order_data['order_code'] = $new_order_code;
+ 
+
    $order_id = DB::table('tbl_order')->insertGetId($order_data); 
   
 
@@ -97,6 +102,7 @@ public function view_order($orderId){
    $order_d_data['product_name'] = $v_content->name;
    $order_d_data['product_price'] = $v_content->price;
    $order_d_data['product_sales_quantity'] = $v_content->qty;
+   $order_d_data['order_code'] = $new_order_code;
    DB::table('tbl_order_details')->insert($order_d_data);
    }
    if($data['payment_method']==1){
