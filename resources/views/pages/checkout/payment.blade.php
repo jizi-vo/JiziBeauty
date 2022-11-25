@@ -77,6 +77,10 @@
 					</span>
 				   <input type="submit" value="Đặt hàng" name="send_order_place" class="btn btn-primary btn-sm">
 				</div>
+
+				
+				<div id="paypal-button"></div>
+					
 </form>
 		</div>
 	</section> <!--/#cart_items-->

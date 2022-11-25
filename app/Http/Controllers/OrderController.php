@@ -8,7 +8,9 @@ use App\Models\Feeship;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Shipping;
+use App\Models\Customer;
 use App\Models\Coupon;
+use App\Models\Product;
 use PDF;
 class OrderController extends Controller
 {

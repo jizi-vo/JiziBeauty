@@ -532,5 +532,50 @@
 			});
 		});
 		</script>
+
+
+
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'AaV4T2rIqbrwn06htW4XV7ieCgUnXfwP5RmWHy1p1AfXs9j2KA23zOFPxo4ipsYsKPF5aTQ6YqjxE5BM',
+      production: 'demo_production_client_id'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '100',
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  }, '#paypal-button');
+
+</script>
 </body>
 </html>

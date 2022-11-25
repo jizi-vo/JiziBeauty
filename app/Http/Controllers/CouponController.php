@@ -34,6 +34,7 @@ class CouponController extends Controller
     }
     public function insert_coupon_code(Request $request){
         $data = $request->all();
+        $today = date("d/m/Y");
         $coupon = new Coupon;
         $coupon->coupon_name = $data['coupon_name'];
         $coupon->coupon_date_start = $data['coupon_date_start'];
@@ -42,6 +43,12 @@ class CouponController extends Controller
         $coupon->coupon_code = $data['coupon_code'];
         $coupon->coupon_time = $data['coupon_time'];
         $coupon->coupon_condition = $data['coupon_condition'];
+        if($coupon->coupon_date_end>=$today){
+        $coupon->coupon_status = 1 ;
+        }
+        else {
+        $coupon->coupon_status = 0 ;
+        }
         $coupon->save();
         Session::put('message','thêm mã giảm giá thành công');
         return Redirect::to('insert-coupon');

@@ -27,8 +27,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('public/backend/js/jquery2.0.3.min.js')}}"></script>
 <script src="{{asset('public/backend/js/raphael-min.js')}}"></script>
 <script src="{{asset('public/backend/js/morris.js')}}"></script>
+<script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
 </head>
 <body>
 <section id="container">
@@ -235,6 +238,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script type="text/javascript">
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+</script>
 
 <script type="text/javascript">
     $(function(){
