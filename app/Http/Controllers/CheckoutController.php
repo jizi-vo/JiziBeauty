@@ -7,7 +7,14 @@ use Cart;
 use DB;
 use Session;
 use Str;
+use App\Models\Feeship;
+use App\Models\Shipping;
+use App\Models\Order;
+use App\Models\OrderDetails;
+use App\Models\Customer;
+use App\Models\Product;
 use App\Http\Requests;
+use PDF;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 
@@ -22,18 +29,29 @@ class CheckoutController extends Controller
     }
 }
 
-public function view_order($orderId){
-  $this->AuthLogin();
-  $order_by_id = DB::table('tbl_order')
-  ->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
-  ->join('tbl_shipping','tbl_order.shipping_id','=','tbl_shipping.shipping_id')
-  ->join('tbl_order_details','tbl_order.order_id','=','tbl_order_details.order_id')
-  ->select('tbl_order.*','tbl_customers.*','tbl_shipping.*','tbl_order_details.*')->first();
-   $manager_order_by_id = view('admin.view_order')->with('order_by_id',$order_by_id);
-   return view('admin_layout')->with('admin.view_order',$manager_order_by_id);
- 
-
+public function view_order($order_code){
+       $order_details = OrderDetails::where('order_code',$order_code)->get();
+       $order = Order::where('order_code',$order_code)->get();
+       foreach($order as $key => $ord){
+        $customer_id = $ord->customer_id;
+        $shipping_id = $ord->shipping_id;
+       }
+       $customer = Customer::where('customer_id',$customer_id)->first();
+       $shipping = Shipping::where('shipping_id',$shipping_id)->first();
+       //$order_details_product = OrderDetails::with('product')->where('order_code',$order_code)->get();
+       return view('admin.view_order')->with(compact('order_details','customer','shipping'));
 }
+
+public function print_order($checkout_code){
+    $pdf = \App::make('dompdf.wrapper');
+    $pdf->loadHTML($this->print_order_convert($checkout_code));
+    return $pdf->stream();
+}
+public function print_order_convert($checkout_code){
+      return $checkout_code;
+}
+
+
   public function login_checkout(){
       $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
       $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();

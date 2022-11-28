@@ -22,6 +22,7 @@
           <tr>
             <th>Thứ Tự</th>
             <th>Mã đơn hàng</th>
+            <th>Ngày tháng đặt hàng</th>
             <th>Tình Trạng đơn hàng </th>
            
             <th style="width:30px;"></th>
@@ -39,6 +40,7 @@
           <tr>
             <td><i>{{$i}}</i></label></td>
             <td>{{ $ord->order_code }}</td>
+            <td>{{ $ord->created_at }}</td>
             <td>@if($ord->order_status==1)
                    Đơn hàng mới
                 @else

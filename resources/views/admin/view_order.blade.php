@@ -107,32 +107,37 @@
             </th>
             <th>Tên sản phẩm</th>
             <th>số lượng</th>
-            <th>Gía</th>
+            <th>Gía sản phẩm</th>
             <th>Tổng tiền</th>
            
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
-        
+          @php
+              $i = 0;
+              $total = 0;
+          @endphp
+        @foreach($order_details as $key => $details)
+          @php
+             $i++;
+             $subtotal = $details->product_price*$details->product_sales_quantity;
+             $total+=$subtotal;
+          @endphp
           <tr>
-            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>{{$order_by_id->product_name}}</td>
-            <td><input type="number" min="1" value="{{$order_by_id->product_sales_quantity}}" name="product_sales_quantity">
-            <button class="btn btn-default"  name="update_quantity">Cập nhật</button></td>
-            <td>{{$order_by_id->product_price}}</td>
-            <td>{{$order_by_id->product_price*$order_by_id->product_sales_quantity}}</td>
+            <td><i></i></td>
+            <td>{{$details->product_name}}</td>
+            <td>{{$details->product_sales_quantity}}</td>
+            <td>{{number_format($details->product_price,0,',','.')}}VNĐ</td>
+            <td>{{number_format($subtotal,0,',','.')}}VNĐ</td>
           </tr>
+          @endforeach
            <tr>
-            <td colspan="2">
-              <select class="form-control">
-              <option value="2">Đã Xử Lý-Đã giao hàng</option>
-              <option value="3">Hủy đơn hàng</option></select>
-            </td>
+            <td>Thanh Toán: {{number_format($total,0,',','.')}}VNĐ</td>
            </tr>
         </tbody>
       </table>
-      
+      <a href="{{url('/print-order/'.$details->order_code)}}">In Đơn Hàng</a>
     </div>
    
   </div>
