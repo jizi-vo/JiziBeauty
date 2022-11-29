@@ -125,9 +125,9 @@
              $total+=$subtotal;
           @endphp
           <tr>
-            <td><i></i></td>
+            <td><i>{{$i}}</i></td>
             <td>{{$details->product_name}}</td>
-            <td>{{$details->product_sales_quantity}}</td>
+            <td><input type="number" min="1" value="{{$details->product_sales_quantity}}" name="product_sales_quantity"></td>
             <td>{{number_format($details->product_price,0,',','.')}}VNĐ</td>
             <td>{{number_format($subtotal,0,',','.')}}VNĐ</td>
           </tr>
@@ -135,9 +135,19 @@
            <tr>
             <td>Thanh Toán: {{number_format($total,0,',','.')}}VNĐ</td>
            </tr>
+           <tr>
+            <td colspan="6">
+              <form>
+              <select class="form-control order_details">
+               <option value="2">Đã xử lý-Đã giao hàng</option>
+               <option value="3">Hủy Đơn Hàng</option>
+              </select>
+              </form>
+            </td>
+           </tr>
         </tbody>
       </table>
-      <a href="{{url('/print-order/'.$details->order_code)}}">In Đơn Hàng</a>
+      <a target="_blank" href="{{url('/print-order/'.$details->order_code)}}">In Đơn Hàng</a>
     </div>
    
   </div>

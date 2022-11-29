@@ -48,7 +48,26 @@ public function print_order($checkout_code){
     return $pdf->stream();
 }
 public function print_order_convert($checkout_code){
-      return $checkout_code;
+      $order_details = OrderDetails::where('order_code',$checkout_code)->get();
+      $order = Order::where('order_code',$checkout_code)->get();
+      foreach($order as $key => $ord){
+        $customer_id = $ord->customer_id;
+        $shipping_id = $ord->shipping_id;
+      }
+      $customer = Customer::where('customer_id',$customer_id)->first();
+      $shipping = Shipping::where('shipping_id',$shipping_id)->first();
+      $order_details_product = OrderDetails::with('Product')->where('order_code',$checkout_code)->get();
+      $output = '';
+      $output.='<table>
+            <thead>
+            <tr>
+                <th>Tên Khách Đặt Hàng</th>
+                <th>Số Điện Thoại</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+      </table>';
+      echo $output;
 }
 
 
