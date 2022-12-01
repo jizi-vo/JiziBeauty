@@ -577,5 +577,57 @@
   }, '#paypal-button');
 
 </script>
+
+<script type="text/javascript">
+	 $('.xemnhanh').click(function(){
+		var product_id = $(this).data('id_product');
+		var _token = $('input[name="_token"]').val();
+		$.ajax({
+			url:"{{url('/quickview')}}",
+			method:"POST",
+			dataType:"JSON",
+			data:{product_id:product_id,_token:_token},
+			success:function(data){
+				$('#product_quickview_title').html(data.product_name);
+				$('#product_quickview_id').html(data.product_id);
+				$('#product_quickview_price').html(data.product_price);
+				$('#product_quickview_image').html(data.product_image);
+				//$('#product_quickview_gallery').html(data.product_gallery);
+				$('#product_quickview_desc').html(data.product_desc);
+				$('#product_quickview_content').html(data.product_content);
+				$('#product_quickview_value').html(data.product_quickview_value);
+			}
+
+		});
+	 });
+</script>
+
+
+
+<script type="text/javascript">
+		$(document).on('click','.add-to-cart-quickview',function(){
+			 var id= $(this).data('id_product');
+			 var cart_product_id = $('.cart_product_id_'+ id).val();
+			 var cart_product_name = $('.cart_product_name_'+ id).val();
+			 var cart_product_image = $('.cart_product_image_'+ id).val();
+			 var cart_product_price = $('.cart_product_price_'+ id).val();
+			 var cart_product_qty = $('.cart_product_qty_'+ id).val();
+			 var_token = $('input[name="_token"]').val();
+			
+			 $.ajax({
+				 url:'{{url('/add-cart-ajax')}}',
+				 method:'POST',
+				 data:{cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_price:cart_product_price,cart_product_qty:cart_product_qty,_token:_token},
+				 beforesend:function(){
+					$("#beforesend_quickview").html("đang thêm sản phẩm vào giỏ hàng")
+				 },
+				 success:function(){
+
+				 }
+			 });
+			
+		});
+	
+	</script>
 </body>
 </html>

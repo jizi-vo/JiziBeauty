@@ -24,6 +24,7 @@ Route::post('/tim-kiem','App\Http\controllers\HomeController@search');
 Route::get('/danh-muc-san-pham/{category_id}','App\Http\controllers\CategoryProduct@show_category_home');
 Route::get('/thuong-hieu-san-pham/{brand_id}','App\Http\controllers\BrandProduct@show_brand_home');
 Route::get('/chi-tiet-san-pham/{product_id}','App\Http\controllers\ProductController@details_product');
+Route::post('/quickview','App\Http\controllers\ProductController@quickview');
 
 //backend
 

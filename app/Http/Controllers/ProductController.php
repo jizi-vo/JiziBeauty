@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use App\Models\Product;
 use App\Models\Comment;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -196,4 +197,28 @@ class ProductController extends Controller
         ->where('tbl_product.product_id',$product_id)->get();
     return view('pages.sanpham.show_details')->with('category',$cate_product)->with('brand',$brand_product)->with('product_details',$details_product);
     }
-}
+    public function quickview(Request $request){
+        $product_id = $request->product_id;
+        $product = Product::find($product_id);
+       // $gallery = Gallery::where('product_id',$product_id)->get();
+     //  $output['product_gallery'] = '';
+      //  foreach($gallery as $key => $gal){
+       //         $output['product_gallery'].= '<p><img width="100%" src="public/uploads/gallery'.$gal->gallery_image.'"></p>';
+     //  }
+        $output['product_name'] = $product->product_name;
+        $output['product_id'] = $product->product_id;
+        $output['product_desc'] = $product->product_desc;
+        $output['product_content'] = $product->product_content;
+        $output['product_price'] = number_format($product->product_price,0,',','.').'VNĐ';
+        $output['product_image'] = '<p><img width="100%" src="public/upload/product'.$product->product_image.'"></p>';
+
+        $output['product_quickview_value'] = '
+        <input type="hidden" value="'.$product->product_id.'" class="cart_product_id_'.$product->product_id.'">
+        <input type="hidden" value="'.$product->product_name.'" class="cart_product_name_'.$product->product_id.'">
+        <input type="hidden" value="'.$product->product_quantity.'" class="cart_product_quantity_'.$product->product_id.'">
+        <input type="hidden" value="'.$product->product_image.'" class="cart_product_image_'.$product->product_id.'">
+        <input type="hidden" value="'.$product->product_price.'" class="cart_product_price_'.$product->product_id.'">
+        <input type="hidden" value="1" class="cart_product_qty_'.$product->product_id.'">';
+      echo json_encode($output);    
+      }
+    }

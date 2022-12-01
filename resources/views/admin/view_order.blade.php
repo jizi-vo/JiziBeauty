@@ -106,6 +106,7 @@
               </label>
             </th>
             <th>Tên sản phẩm</th>
+            <th>Số lượng kho</th>
             <th>số lượng</th>
             <th>Gía sản phẩm</th>
             <th>Tổng tiền</th>
@@ -127,6 +128,7 @@
           <tr>
             <td><i>{{$i}}</i></td>
             <td>{{$details->product_name}}</td>
+            <td>{{$details->product_quantity}}</td>
             <td><input type="number" min="1" value="{{$details->product_sales_quantity}}" name="product_sales_quantity"></td>
             <td>{{number_format($details->product_price,0,',','.')}}VNĐ</td>
             <td>{{number_format($subtotal,0,',','.')}}VNĐ</td>
