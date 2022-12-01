@@ -4,7 +4,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-       Thông Tin Khách Hàng Đăng Nhập
+       Thông Tin Vận Chuyển
     </div>
    
     <div class="table-responsive">
@@ -16,7 +16,7 @@
 	                    }
 	                     ?>
       <table class="table table-striped b-t b-light">
-        <th>Tên khách hàng</th>
+        <th>Tên người Vận Chuyển</th>
         <th>Số điện thoại</th>
         <th>Email</th>
         
@@ -25,9 +25,9 @@
         </thead>
         <tbody> 
           <tr>
-            <td>{{$customer->customer_name}}</td>
-            <td>{{$customer->customer_phone}}</td>
-            <td>{{$customer->customer_email}}</td>
+            <td>Nguyễn Minh Anh</td>
+            <td>09653425443</td>
+            <td>minhanhnguyen@gmail.com</td>
           </tr>
          
         </tbody>
@@ -43,7 +43,7 @@
 <div class="table-agile-info">
   <div class="panel panel-default">
     <div class="panel-heading">
-       Thông Tin Vận Chuyển 
+       Thông Tin Khách hàng
     </div>
    
     <div class="table-responsive">
@@ -55,7 +55,7 @@
 	                    }
 	                     ?>
       <table class="table table-striped b-t b-light">
-        <th>Tên người vận chuyển</th>
+        <th>Tên Khách hàng</th>
         <th>Địa chỉ</th>
         <th>Số điện thoại</th>
         <th>Email</th>

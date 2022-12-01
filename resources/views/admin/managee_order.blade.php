@@ -24,6 +24,7 @@
             <th>Mã đơn hàng</th>
             <th>Ngày tháng đặt hàng</th>
             <th>Tình Trạng đơn hàng </th>
+            <th>Hiển Thị</th>
            
             <th style="width:30px;"></th>
           </tr>

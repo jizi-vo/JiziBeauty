@@ -88,6 +88,7 @@ Route::post('/order-place','App\Http\controllers\CheckoutController@order_place'
 Route::get('/print-order/{checkout_code}','App\Http\controllers\CheckoutController@print_order');
 Route::get('/managee-order','App\Http\controllers\OrderController@managee_order');
 Route::get('/view-order/{order_code}','App\Http\controllers\CheckoutController@view_order');
+Route::get('/history','App\Http\controllers\OrderController@history');
 
 
 Route::get('/manage-order','App\Http\controllers\CheckoutController@manage_order');

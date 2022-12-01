@@ -49,4 +49,10 @@ class OrderController extends Controller
     	$order = Order::orderby('created_at','DESC')->paginate(5);
     	return view('admin.managee_order')->with(compact('order'));
     }
+
+	public function history(){
+		if(!Session::get('customer_id')){
+             return redirect('dang-nhap')->with('error','vui lòng đăng nhap để xem lịch sử đơn hàng');
+		}
+	}
 }

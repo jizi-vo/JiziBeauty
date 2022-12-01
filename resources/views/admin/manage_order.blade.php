@@ -46,7 +46,7 @@
             <th>Tên người đặt</th>
             <th>Tổng giá tiền</th>
             <th>Tình trạng</th>
-            <th>Hiển thị</th>
+            <th>Xóa</th>
            
             <th style="width:30px;"></th>
           </tr>
@@ -60,8 +60,6 @@
             <td>{{ $order->order_status}}</td>
             
             <td>
-            <a href="{{URL::to('/view-order/'.$order->order_id)}}" class="active" ui-toggle-class="">
-              <i class="fa fa-pencil-square-o text-success text-active"></i></a>
               <a onclick="return confirm('are you sure to delete?')" href="{{URL::to('/delete-order/'.$order->order_id)}}" class="active" ui-toggle-class="">
               <i class="fa fa-times text-danger text"></i></a>
             </td>
