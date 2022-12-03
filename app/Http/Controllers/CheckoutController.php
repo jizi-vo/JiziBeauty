@@ -58,16 +58,105 @@ public function print_order_convert($checkout_code){
       $shipping = Shipping::where('shipping_id',$shipping_id)->first();
       $order_details_product = OrderDetails::with('Product')->where('order_code',$checkout_code)->get();
       $output = '';
-      $output.='<table>
+      $output.='<style>body{
+        font-family: DejaVu Sans;
+      }
+      .table-styling{
+        border:1px solid #000;
+      }
+      .table-styling tbody tr td{
+        border:1px solid #000;
+      }
+      </style>
+      <h1><center>SHOP CHARM BEAUTY</center></h1>
+      <h4><center>Độc Lập - Tự Do - Hạnh Phúc</center></h4>
+      <p>Người đặt hàng</p>
+      <table class="table-styling">
             <thead>
             <tr>
-                <th>Tên Khách Đặt Hàng</th>
-                <th>Số Điện Thoại</th>
+                <th>Tên Khách Hàng</th>
+                <th>Số Điện Thoại Khách</th>
                 <th>Email</th>
             </tr>
             </thead>
-      </table>';
-      echo $output;
+            <tbody>';
+        $output.='
+            <tr>
+                <td>'.$customer->customer_name.'</td>
+                <td>'.$customer->customer_phone.'</td>
+                <td>'.$customer->customer_email.'</td>
+            </tr>';
+          
+        $output.='
+            </tbody>
+      </table>
+      <p>Ship hàng tới</p>
+      <table class="table-styling">
+            <thead>
+            <tr>
+                <th>Tên người ship hàng</th>
+                <th>Địa Chỉ Ship</th>
+                <th>Số Điện Thoại shiper</th>
+                <th>Ghi Chú </th>
+            </tr>
+            </thead>
+            <tbody>';
+        $output.='
+            <tr>
+                <td>Nguyễn Minh Anh</td>
+                <td>'.$shipping->shipping_address.'</td>
+                <td>09653425443</td>
+                <td>'.$shipping->shipping_notes.'</td>
+            </tr>';
+          
+        $output.='
+            </tbody>
+      </table>
+      <p>Đơn hàng đặt</p>
+      <table class="table-styling">
+            <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Gía sản phẩm</th>
+                <th>Thành tiền</th>
+            </tr>
+            </thead>
+            <tbody>';
+            $total = 0;
+            foreach($order_details_product as $key => $product){
+            $subtotal = $product->product_price*$product->product_sales_quantity;
+            $total+=$subtotal;
+        $output.='
+            <tr>
+                <td>'.$product->product_name.'</td>
+                <td>'.$product->product_sales_quantity.'</td>
+                <td>'.number_format($product->product_price,0,',','.').'VNĐ'.'</td>
+                <td>'.number_format($subtotal,0,',','.').'VNĐ'.'</td>
+            </tr>';
+    }
+    $output.='<tr>
+        <td colspan="2">
+        <p>Thanh Toán:'.number_format($total,0,',','.').'VNĐ'.'</p>
+        </td>
+    </tr>';
+        $output.='
+            </tbody>
+      </table>
+      <p>Ký tên</p>
+      <table>
+      <thead>
+           <tr>
+              <th width="200px">Người lập phiếu</th>
+              <th width="800px">Người nhận</th>
+           </tr>
+      </thead>
+      <tbody>';
+          $output.='
+      </tbody>
+      </table>
+      ';
+      return $output;
 }
 
 
