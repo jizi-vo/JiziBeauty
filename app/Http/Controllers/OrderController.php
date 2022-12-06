@@ -55,4 +55,34 @@ class OrderController extends Controller
              return redirect('dang-nhap')->with('error','vui lòng đăng nhap để xem lịch sử đơn hàng');
 		}
 	}
+
+	public function update_order_qty(Request $request){
+		$data = $request->all();
+        $order = Order::find($data['order_id']);
+		$order->order_status = $data['order_status'];
+		$order->save();
+		if($order->order_status==2){
+			foreach($data['order_product_id'] as $key => $product_id){
+                 $product = Product::find($product_id);
+				 $product_quantity = $product->product_quantity;
+				 $product_sold = $product->product_sold;
+				foreach($data['quantity'] as $key1 => $pty){
+
+					if($key==$key1){
+                       $pro_remain = $product_quantity - $qty;
+					   $product->product_quantity = $pro_remain;
+                       $product->product_sold = $product_sold + $qty;
+					   $product->save();
+					}
+				
+				}
+			}
+		}
+	}
+	public function update_qty(Request $request){
+            $data = $request->all();
+			$order_details = OrderDetails::where('product_id',$data['order_product_id'])->where('order_code',$data['order_code'])->first();
+			$order_details->product_sales_quantity = $data['order_qty'];
+			$order_details->save();
+	}
 }

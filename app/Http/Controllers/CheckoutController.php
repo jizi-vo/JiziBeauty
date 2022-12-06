@@ -30,7 +30,7 @@ class CheckoutController extends Controller
 }
 
 public function view_order($order_code){
-       $order_details = OrderDetails::where('order_code',$order_code)->get();
+       $order_details = OrderDetails::with('product')->where('order_code',$order_code)->get();
        $order = Order::where('order_code',$order_code)->get();
        foreach($order as $key => $ord){
         $customer_id = $ord->customer_id;
@@ -39,7 +39,7 @@ public function view_order($order_code){
        $customer = Customer::where('customer_id',$customer_id)->first();
        $shipping = Shipping::where('shipping_id',$shipping_id)->first();
        //$order_details_product = OrderDetails::with('product')->where('order_code',$order_code)->get();
-       return view('admin.view_order')->with(compact('order_details','customer','shipping'));
+       return view('admin.view_order')->with(compact('order_details','customer','shipping','order'));
 }
 
 public function print_order($checkout_code){

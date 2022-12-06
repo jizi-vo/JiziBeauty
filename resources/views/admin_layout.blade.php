@@ -547,6 +547,65 @@ function fetch_delivery(){
 
 		});
 	</script>
+
+    <script type="text/javascript">
+         $('.order_details').change(function(){
+              var order_status = $(this).val();
+              var order_id = $(this).children(":selected").attr("id");
+              var _token = $('input[name="_token"]').val();
+              
+              //lay ra so luong
+              quantity = [];
+              $("input[name='product_sales_quantity']").each(function(){
+                     quantity.push($(this).val());
+              });
+              //lay ra product id
+              order_product_id = [];
+              $("input[name='order_product_id']").each(function(){
+                     order_product_id.push($(this).val());
+              });
+              k = 0;
+
+              for(i=0;i<order_product_id.length;i++){
+                 var order_qty = $('.order_qty_' + order_product_id[i]).val();
+                 var order_qty_storage = $('.order_qty_storage_' + order_product_id[i]).val();
+                 if(parseInt(order_qty)>parseInt(order_qty_storage)){
+                      k = k + 1;
+                      if(k==1){
+                   alert('so luong ban trong kho k đủ');
+                      }
+                    $('.color_qty_'+order_product_id[i]).css('background','#000');
+                 }
+              }
+              if(k==0){
+              $.ajax({
+                     url: '{{url('/update-order-qty')}}',
+                     method: 'POST',
+                     data:{_token:_token,order_status:order_status,order_id:order_id,quantity:quantity,order_product_id:order_product_id},
+                     success:function(data){
+                        alert('Thay đổi đơn hàng thành công');
+                     }
+              });
+            }
+         });
+        </script>
+        <script type="text/javascript">
+        $('.update_quantity_order').click(function(){
+            var order_product_id = $(this).data('product_id');
+            var order_qty = $('.order_qty_'+order_product_id).val();
+            var order_code = $('.order_code').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                     url: '{{url('/update-qty')}}',
+                     method: 'POST',
+                     data:{_token:_token,order_product_id:order_product_id,order_qty:order_qty,order_code:order_code},
+                     success:function(data){
+                        alert('cập nhật số lượng thành công');
+                        location.reload();
+                     }
+              });
+        });
+        </script>
 	<!-- //calendar -->
 </body>
 </html>

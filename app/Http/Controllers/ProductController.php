@@ -38,7 +38,7 @@ class ProductController extends Controller
          $comment->save();
     }
     public function list_comment(){
-        $comment = Comment::with('product')->where('coment_parent_coment','=',0)->orderBy('comment_status','DESC')->get();
+        $comment = Comment::with('product')->where('coment_parent_coment','=',0)->orderBy('comment_status','DESC')->orderBy('comment_date','DESC')->get();
         $comment_rep = Comment::with('product')->where('coment_parent_coment','>',0)->get();
         return view('admin.comment.list_comment')->with(compact('comment','comment_rep'));
     }

@@ -94,6 +94,8 @@ Route::get('/history','App\Http\controllers\OrderController@history');
 
 Route::get('/manage-order','App\Http\controllers\CheckoutController@manage_order');
 Route::get('/view-order/{orderId}','App\Http\controllers\CheckoutController@view_order');
+Route::post('/update-order-qty','App\Http\controllers\OrderController@update_order_qty');
+Route::post('/update-qty','App\Http\controllers\OrderController@update_qty');
 
 //sendmail
 Route::get('/send-mail','App\Http\controllers\HomeController@send_mail');
