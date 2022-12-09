@@ -86,7 +86,7 @@
 		<h2 class="quickview"><span id="product_quickview_title"></span></h2>
 		<p>Mã ID:<span id="product_quickview_id"></span></p>
           <span>
-			<h2 style="color:pink">Price:<span id="product_quickview_price"></span></h2><br/>
+			<h2 style="color:orange">Price:<span id="product_quickview_price"></span></h2><br/>
 		<label>Số lượng:</label>
 		<input name="qty" type="number" min="1" class="cart_product_qty_" value="1"/>
 		<input name="productid_hidden" type="hidden" value=""/>

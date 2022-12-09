@@ -36,19 +36,19 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i>09637447647</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i>votranhuyentran@gmail.com</a></li>
+								<li><a href="#"><i class="fa fa-phone" style="color: orange"></i><strong>09637447647</strong></a></li>
+								<li><a href="#"><i class="fa fa-envelope" style="color: orange"></i><strong>votranhuyentran@gmail.com</strong></a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook" style="color:orange"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" style="color:orange"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin" style="color: orange"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble" style="color: orange"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus" style="color:orange"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -61,11 +61,11 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="{{asset('public/frontend/images/e47e.png')}}" alt="" style="width:100px;height:70px;" /></a>
+							<a href="index.html"><img src="{{asset('public/frontend/images/Beauty makeup.png')}}" alt="" style="width:100px;height:70px;" /></a>
 						</div>
 						<div class="btn-group pull-right">
-							<h1 style="font-size:25px"> HANNA BEAUTY</h1>
-							<p>Women are always beautiful.</p>
+							<h1 style="font-size:25px; color:orange"> CHARM BEAUTY</h1>
+							<p style="color: gray">Women are always beautiful.</p>
 						</div>
 						<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
@@ -82,27 +82,27 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-user"></i>tài khoản</a></li>
+								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-user" style="color: orange"></i>tài khoản</a></li>
 								
 								<?php
 								   $customer_id = Session::get('customer_id');
 								   $shipping_id = Session::get('shipping_id');
 								   if($customer_id!=NULL && $shipping_id==NULL){
 								?>
-								<li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
+								<li><a href="{{URL::to('/checkout')}}"><i class="fa fa-crosshairs" style="color: orange"></i>Thanh toán</a></li>
 								<?php
 								   }elseif($customer_id!=NULL && $shipping_id==NULL){
 									?>
-									<li><a href="{{URL::to('/payment')}}"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
+									<li><a href="{{URL::to('/payment')}}"><i class="fa fa-crosshairs" style="color: orange"></i>Thanh toán</a></li>
 								<?php
 								   
 								   }else{
 								?>
-								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs"></i>Thanh toán</a></li>
+								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-crosshairs" style="color: orange"></i>Thanh toán</a></li>
 								<?php
 								   }
 								   ?>
-								<li class="cart-hover"><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i>
+								<li class="cart-hover"><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart" style="color: orange"></i>
 									giỏ hàng
 
 								</a></li>
@@ -110,11 +110,11 @@
 								   $customer_id = Session::get('customer_id');
 								   if($customer_id!=NULL){
 								?>
-								<li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-lock"></i>Đăng xuất</a></li>
+								<li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-lock" style="color: orange"></i>Đăng xuất</a></li>
 								<?php
 								   }else{
 								?>
-								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i>Đăng nhập</a></li>
+								<li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock" style="color: orange"></i>Đăng nhập</a></li>
 								<?php
 								   }
 								   ?>
@@ -185,7 +185,7 @@
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>Hanna</span>Beauty</h1>
+									<h1><span>CHARM</span>BEAUTY</h1>
 									<h2>Innisfree</h2>
 									<p>nnisfree được thành lập vào tháng 1 năm 2000, là thương hiệu mỹ phẩm thừa hưởng những tinh túy của thiên nhiên từ đảo Jeju, hòn đảo tràn ngập trong không khí trong lành và tươi mát. Jeju được UNESCO công nhận là di sản thiên nhiên thế giới đầu tiên của Hàn Quốc.</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
@@ -197,7 +197,7 @@
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>Hanna</span>BEAUTY</h1>
+									<h1><span>CHARM</span>BEAUTY</h1>
 									<h2>Shiseido</h2>
 									<p>Shiseido là dòng mỹ phẩm cao cấp đến từ Nhật Bản có tác dụng chống lão hóa,trị mụn, trị nám, dưỡng ẩm và dưỡng trắng da rất hiệu quả. Mỹ phẩm Shiseido sẽ cho bạn một làn da căng bóng, mềm mịn và trắng sáng rạng ngời.</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
@@ -210,7 +210,7 @@
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>Hanna</span>BEAUTY</h1>
+									<h1><span>CHARM</span>BEAUTY</h1>
 									<h2>Phấn mắt CLIO</h2>
 									<p>Bảng Phấn Mắt 10 Màu Clio Pro Eye Palette là bảng phấn mắt thuộc thương hiệu Clio 10 màu Clio Pro Eye Palette là bảng mắt được thiết kế độc đáo mang nhiều phong cách khác nhau kết hợp lại, tạo hiệu ứng đôi mắt long lanh đáng mơ ước mà không cần nhiều thời gian và công sức </p>
 									<button type="button" class="btn btn-default get">Get it now</button>
