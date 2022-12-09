@@ -99,7 +99,7 @@ sha384-BVYiiSIFeK1dGmJRAkycuHAHRg320mUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossor
             </tbody>
             </table>
     </div>
-    <p style="color:#fff">Mọi chi tiết xin liên hệ website<a target="_blank" href="http://shop.com">hoặc liên hệ số hotline:0976665655</a></p>
+    <p style="color:#fff; text-align:center; font-size: 15px;">Lịch sử đơn hàng<a  href="#">Lịch sử đơn hàng của bạn</a></p>
         </div>
         </div>
     </div>

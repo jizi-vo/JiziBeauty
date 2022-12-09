@@ -61,6 +61,15 @@ class OrderController extends Controller
         $order = Order::find($data['order_id']);
 		$order->order_status = $data['order_status'];
 		$order->save();
+
+        $now = Carbon::now('Asia/Ho_Chi_Minh')->format('d-m-Y H:i:s');
+		$title_mail = "Đơn hàng đã được xác nhận".' '.$now;
+		$customer = Customer::where('customer_id',$order->customer_id)->first();
+		$data['email'][] = $customer->customer_email;
+
+		//foreach($data)
+
+
 		if($order->order_status==2){
 			foreach($data['order_product_id'] as $key => $product_id){
                  $product = Product::find($product_id);

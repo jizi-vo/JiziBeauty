@@ -203,14 +203,13 @@ class ProductController extends Controller
        // $gallery = Gallery::where('product_id',$product_id)->get();
      //  $output['product_gallery'] = '';
       //  foreach($gallery as $key => $gal){
-       //         $output['product_gallery'].= '<p><img width="100%" src="public/uploads/gallery'.$gal->gallery_image.'"></p>';
      //  }
         $output['product_name'] = $product->product_name;
         $output['product_id'] = $product->product_id;
         $output['product_desc'] = $product->product_desc;
         $output['product_content'] = $product->product_content;
         $output['product_price'] = number_format($product->product_price,0,',','.').'VNĐ';
-        $output['product_image'] = '<p><img width="100%" src="public/upload/product'.$product->product_image.'"></p>';
+        $output['product_image'] = '<p><img width="100%" src="public/upload/product/'.$product->product_image.'"></p>';
 
         $output['product_quickview_value'] = '
         <input type="hidden" value="'.$product->product_id.'" class="cart_product_id_'.$product->product_id.'">
