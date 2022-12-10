@@ -88,14 +88,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
                     <a class="active" href="{{URL::to('/managee-order')}}">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
+                        <i class="fa fa-pie-chart"></i>
+                        <span>ADMIN</span>
                     </a>
                 </li>
 
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-camera-retro"></i>
                         <span>Banner</span>
                     </a>
                     <ul class="sub">
@@ -108,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-bar-chart"></i>
                         <span>Đơn hàng</span>
                     </a>
                     <ul class="sub">
@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-gift"></i>
                         <span>Mã giảm giá</span>
                     </a>
                     <ul class="sub">
@@ -132,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-taxi"></i>
                         <span>Vận Chuyển</span>
                     </a>
                     <ul class="sub">
@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-star"></i>
                         <span>Danh mục sản phẩm</span>
                     </a>
                     <ul class="sub">
@@ -155,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-edit"></i>
                         <span>Danh Mục Bài Viết</span>
                     </a>
                     <ul class="sub">
@@ -167,7 +167,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-globe"></i>
                         <span>Thương hiệu sản phẩm</span>
                     </a>
                     <ul class="sub">
@@ -178,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
 				<li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-shopping-bag"></i>
                         <span> sản phẩm</span>
                     </a>
                     <ul class="sub">
@@ -190,7 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-comments"></i>
                         <span> Bình Luận</span>
                     </a>
                     <ul class="sub">
@@ -201,7 +201,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <li class="sub-menu">
                     <a href="javascript:;">
-                        <i class="fa fa-book"></i>
+                        <i class="fa fa-pencil-square"></i>
                         <span>Bài Viết</span>
                     </a>
                     <ul class="sub">
