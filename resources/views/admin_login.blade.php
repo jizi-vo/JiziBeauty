@@ -34,7 +34,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  ?>
 		<form action="{{URL::to('/admin-dashboard')}}" method="post">
 		  {{csrf_field()}}
-		  @foreach($errors->all() as $val){
+		  @foreach($errors->all() as $val)
 		 <ul>
 			<li>{{$val}}</li>
 		  </ul>
@@ -42,11 +42,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<input type="text" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
 			<input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
 			<span><input type="checkbox" />Remember Me</span>
-			<h6><a href="#">Forgot Password?</a></h6>
+			<h6></h6>
 				<div class="clearfix"></div>
 				<input type="submit" value="Sign In" name="login">
 			<div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
-	</br>
+	<br>
 	@if($errors->has('g-recaptcha-response'))
 	<span class="invalid-feedback" style="display:block">
 	    <strong>{{$errors->first('g-recaptcha-response')}}</strong>
