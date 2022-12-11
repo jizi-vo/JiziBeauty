@@ -270,4 +270,14 @@ public function print_order_convert($checkout_code){
      $manager_order = view('admin.manage_order')->with('all_order',$all_order);
     return view('admin_layout')->with('admin.manage_order',$manager_order);
   }
+
+  public function history(){
+    if(!Session::get('customer_id')){
+         return redirect('dang-nhap')->with('error','vui lòng đăng nhập để xem lịch sử đơn hàng');
+    }else{
+      $order = Order::orderby('created_at','DESC')->paginate(5);
+    	return view('admin.managee_order')->with(compact('order'));
+
+    }
+  }
 }

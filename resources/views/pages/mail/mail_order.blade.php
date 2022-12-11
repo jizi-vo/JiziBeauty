@@ -24,4 +24,5 @@ sha384-BVYiiSIFeK1dGmJRAkycuHAHRg320mUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossor
         <p style="color:#fff;font-size:17px;">Bạn hoặc một ai đó đã đăng ký dịch vụ tại shop với thông tin như sau:</p>
         <h4 style="color:#000;text-transform:uppercase;">Thông Tin Đơn Hàng</h4>
         <p>Mã đơn hàng:<strong style="text-transform: uppercase;">Thông Tin đơn hàng</p>
+        </div>
             

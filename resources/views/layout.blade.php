@@ -118,6 +118,19 @@
 								<?php
 								   }
 								   ?>
+
+								   
+                                <li class="cart-hover"><a href="{{URL::to('/show-cart')}}"><i class="" style="color: orange"></i>
+
+                                </a></li>
+                                <?php
+                                   $customer_id = Session::get('customer_id');
+                                         if($customer_id!=NULL){
+                                ?>
+                                <li><a href="{{URL::to('/history')}}"><i class="fa fa-bookmark" style="color: orange"></i>Lịch sử đơn hàng</a></li>
+                                <?php
+										 }
+                                ?>
 							</ul>
 						</div>
 					</div>

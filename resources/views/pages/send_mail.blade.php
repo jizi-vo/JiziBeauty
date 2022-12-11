@@ -51,6 +51,7 @@
             <div class="container">
                 <p class="code">Sử dụng code sau:<span class="promo">GFB10</span></p>
                 <p class="expire">ngày hết hạn code 4-2-2023</p>
+                <p style="color:aqua;text-align:center;font-size:15px;">Xem lại lịch sử đơn hàng đã đặt tại:<a href="{{url('/history')}}">lịch sử đơn hàng của bạn</a></p>
             </div>
         </div>
     </body>
