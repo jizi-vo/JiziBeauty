@@ -12,6 +12,9 @@ use App\Models\Shipping;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Customer;
+use App\Models\Brand;
+use App\Models\CatePost;
+use App\Models\Slider;
 use App\Models\Product;
 use App\Http\Requests;
 use PDF;
@@ -275,8 +278,17 @@ public function print_order_convert($checkout_code){
     if(!Session::get('customer_id')){
          return redirect('dang-nhap')->with('error','vui lòng đăng nhập để xem lịch sử đơn hàng');
     }else{
-      $order = Order::orderby('created_at','DESC')->paginate(5);
-    	return view('admin.managee_order')->with(compact('order'));
+    
+    //	return view('pages.history.history')->with(compact('order'));
+    $category_post = CatePost::orderBy('cate_post_id','DESC')->get();
+    
+        $slider = Slider::orderBy('slider_id','DESC')->take(4)->get();
+
+
+        $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
+        $brand_product = DB::table('tbl_brand')->where('brand_status','0')->orderby('brand_id','desc')->get();
+        $order = Order::where('customer_id',Session::get('customer_id'))->orderby('order_id','DESC')->paginate(6);
+        return view('pages.history.history')->with('category',$cate_product)->with('brand',$brand_product)->with('slider',$slider)->with('category_post',$category_post)->with('order',$order);
 
     }
   }
