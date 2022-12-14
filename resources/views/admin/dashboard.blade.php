@@ -8,7 +8,34 @@
           font-weight: bold;
        }
     </style>
-<div class="row">
+            <!-- //market-->
+            <div class="row">
+                <div class="panel-body">
+                    <div class="col-md-12 w3ls-graph">
+                        <!--agileinfo-grap-->
+                            <div class="agileinfo-grap">
+                                <div class="agileits-box">
+                                    <header class="agileits-box-header clearfix">
+                                        <h3>Visitor Statistics</h3>
+                                            <div class="toolbar">
+                                                
+                                                
+                                            </div>
+                                    </header>
+                                    <div class="agileits-box-body clearfix">
+                                        <div id="hero-area"></div>
+                                    </div>
+                                </div>
+                            </div>
+        <!--//agileinfo-grap-->
+    
+                    </div>
+                </div>
+            </div>
+            <div class="agil-info-calendar">
+
+            <!-- //calendar -->
+{{--<div class="row">
     <p class="title_thongke">Thống kê đơn hàng doanh số</p>
     <form autocomplete="off">
         @csrf
@@ -20,7 +47,7 @@
             <p>Đến ngày:<input type="text" id="datepicker2" class="form-control"></p>
         </div>
 
-       {{--<div class="col-md-2">
+       <div class="col-md-2">
             <p>
                 Lọc theo:
             <select class="dasboard-filter form-control">
