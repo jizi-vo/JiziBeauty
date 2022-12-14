@@ -43,9 +43,11 @@
             <td>{{ $ord->order_code }}</td>
             <td>{{ $ord->created_at }}</td>
             <td>@if($ord->order_status==1)
-                   Đơn hàng mới
+                   <span class="text text-success">Đơn hàng mới</span>
+                @elseif($ord->order_status==2) 
+                   <span class="text text-primary">Đã xử lý-Đã giao hàng</span>
                 @else
-                    Đang chờ xử lý
+                   <span class="text text-danger">Hủy Đơn Hàng</span>
                 @endif
             </td>
             <td>

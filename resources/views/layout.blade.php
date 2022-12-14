@@ -667,6 +667,7 @@
 				 data:{order_code:order_code, lydo:lydo,_token:_token},
 				 success:function(data){
                     alert('Hủy đơn hàng thành công');
+					location.reload();
 				 }
 			 });
 		  }
