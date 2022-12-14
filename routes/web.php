@@ -99,6 +99,8 @@ Route::get('/history','App\Http\controllers\CheckoutController@history');
 
 Route::get('/view-history-order/{order_code}','App\Http\controllers\OrderController@view_history_order');
 
+Route::post('/huy-don-hang','App\Http\controllers\OrderController@huy_don_hang');
+
 //sendmail
 Route::get('/send-mail','App\Http\controllers\HomeController@send_mail');
 

@@ -655,5 +655,21 @@
 		   });
 		});
 		</script>
+
+		<script type="text/javascript">
+          function Huydonhang(id){
+             var order_code = id;
+			 var lydo = $('.lydohuydon').val();
+			 var _token = $('input[name="_token"]').val();
+			 $.ajax({
+				 url:'{{url('/huy-don-hang')}}',
+				 method:'POST',
+				 data:{order_code:order_code, lydo:lydo,_token:_token},
+				 success:function(data){
+                    alert('Hủy đơn hàng thành công');
+				 }
+			 });
+		  }
+		</script>
 </body>
 </html>

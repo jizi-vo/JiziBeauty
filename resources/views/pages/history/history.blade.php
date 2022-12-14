@@ -49,8 +49,33 @@
                 @endif
             </td>
             <td>
-                <a href="{{URL::to('/view-history-order/'.$ord->order_code)}}" class="active styling-edit" ui-toggle-class="">
-                  Xem đơn hàng</a>
+                <!-- Trigger the modal with a button -->
+        <p><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#huydon">Hủy đơn hàng</button></p>
+
+      <!-- Modal -->
+      <div id="huydon" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+     <form>
+      @csrf
+    <!-- Modal content-->
+     <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Lý do hủy đơn hàng</h4>
+        </div>
+        <div class="modal-body">
+        <p><textarea rows="5" class="lydohuydon" required placeholder="Lý do hủy đơn hàng.....(bắt buộc)"></textarea></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="{{$ord->order_code}}" onclick="Huydonhang(this.id)" class="btn btn-success">Gửi</button>
+        </div>
+      </div>
+     </form>
+      </div>
+      </div>
+                <p><a href="{{URL::to('/view-history-order/'.$ord->order_code)}}" class="active styling-edit" ui-toggle-class="">
+                  Xem đơn hàng</a></p>
   
                 {{--<a onclick="return confirm('Bạn có chắc là muốn xóa đơn hàng này ko?')" href="{{URL::to('/delete-order/'.$ord->order_code)}}" class="active styling-edit" ui-toggle-class="">
                   <i class="fa fa-times text-danger text"></i>

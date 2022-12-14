@@ -42,10 +42,12 @@
             <td><i>{{$i}}</i></label></td>
             <td>{{ $ord->order_code }}</td>
             <td>{{ $ord->created_at }}</td>
-            <td>@if($ord->order_status==1)
-                   Đơn hàng mới
+            <td>@if($ord->order_status==1):
+                  Chưa xử lý
+                @elseif($ord->order_status==2) 
+                  Đã xử lý-Đã giao hàng
                 @else
-                    Đã xử lý
+                  Hủy Đơn Hàng
                 @endif
             </td>
             <td>

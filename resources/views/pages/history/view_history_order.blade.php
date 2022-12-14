@@ -130,7 +130,7 @@
             <td>{{$details->product_name}}</td>
             <td>{{$details->product->product_quantity}}</td>
             <td>
-            <input type="number" min="1" class="order_qty_{{$details->product_id}}" value="{{$details->product_sales_quantity}}" name="product_sales_quantity">
+            <input type="number" min="1" readonly class="order_qty_{{$details->product_id}}" value="{{$details->product_sales_quantity}}" name="product_sales_quantity">
 
             <input type="hidden" name="order_qty_storage" class="order_qty_storage_{{$details->product_id}}" value="{{$details->product->product_quantity}}">
 
@@ -148,7 +148,6 @@
            </tr>
         </tbody>
       </table>
-      <a target="_blank" href="{{url('/print-order/'.$details->order_code)}}">In Đơn Hàng</a>
     </div>
    
   </div>

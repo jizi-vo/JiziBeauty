@@ -122,4 +122,12 @@ class OrderController extends Controller
 	
 		}
 	  }
+
+	  public function huy_don_hang(Request $request){
+         $data = $request->all();
+		 $order = Order::where('order_code',$data['order_code'])->first();
+		 $order->order_destroy = $data['lydo'];
+		 $order->order_status = 3;
+		 $order->save();
+	  }
 }
