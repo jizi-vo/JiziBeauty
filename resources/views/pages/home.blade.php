@@ -19,9 +19,9 @@
 											<h2>{{number_format($product->product_price).' '.'VNĐ'}}</h2>
 											<p>{{$product->product_name}}</p>
                                         </a>
-                                            <button type="button" class="btn btn-default add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart">Thêm giỏ hàng</button>
-
+											<button style="margin-bottom: 0;" type="button" class="btn btn-default add-to-cart" data-id_product="{{$product->product_id}}" name="add-to-cart">Thêm giỏ hàng</button>
 											<button type="button" data-toggle="modal" data-toggle="modal" data-target="#xemnhanh" value="Xem nhanh" class="btn btn-default xemnhanh" data-id_product="{{$product->product_id}}" name="add-to-cart">Xem Nhanh</button>
+
                                               </form>
 										</div>
 								</div>

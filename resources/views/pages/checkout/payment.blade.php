@@ -71,15 +71,13 @@
 			<h4 style="margin:40px 0;font-size: 20px;">Chọn hình thức thanh toán</h4>
 			<form method="POST" action="{{URL::to('/order-place')}}">
 				{{csrf_field()}}
-			<div class="payment-options">
+			<div style="display:flex;" class="payment-options">
 					<span>
 						<label><input name="payment_option" value="2" type="checkbox">Nhận Tiền mặt</label>
 					</span>
-				   <input type="submit" value="Đặt hàng" name="send_order_place" class="btn btn-primary btn-sm">
+				   <input style="margin: 0 12px; margin-top: 0;" type="submit" value="Đặt hàng" name="send_order_place" class="btn btn-primary btn-sm">
+				   <div style="display: inline-block"><div id="paypal-button"></div></div>
 				</div>
-
-				
-				<div id="paypal-button"></div>
 					
 </form>
 		</div>
