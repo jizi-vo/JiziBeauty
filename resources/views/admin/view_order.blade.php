@@ -144,48 +144,48 @@
             <td>{{number_format($details->product_price,0,',','.')}}VNĐ</td>
             <td>{{number_format($subtotal,0,',','.')}}VNĐ</td>
           </tr>
-          @endforeach
+        @endforeach
            <tr>
             <td>Thanh Toán: {{number_format($total,0,',','.')}}VNĐ</td>
            </tr>
            <tr>
             <td colspan="6">
               @foreach($order as $key => $or)
-                 @if($or->order_status==1)
-              <form>
-                @csrf
-              <select class="form-control order_details">
-                <option id={{$or->order_id}} selected value="1">Chưa xử lý</option>
-               <option id={{$or->order_id}}  value="2">Đã xử lý-Đã giao hàng</option>
-               <option id={{$or->order_id}}  value="3">Hủy Đơn Hàng</option>
-              </select>
-              </form>
-                 @elseif($or->order_status==2)
+                @if($or->order_status==1)
                  <form>
-                  @csrf
-                  <select class="form-control order_details">
-                    <option id={{$or->order_id}} value="1">Chưa xử lý</option>
-                   <option id={{$or->order_id}} selected value="2">Đã xử lý-Đã giao hàng</option>
-                   <option id={{$or->order_id}} value="3">Hủy Đơn Hàng</option>
-                  </select>
+                    @csrf
+                    <select class="form-control order_details">
+                      <option id={{$or->order_id}} selected value="1">Chưa xử lý</option>
+                      <option id={{$or->order_id}}  value="2">Đã xử lý-Đã giao hàng</option>
+                      <option id={{$or->order_id}}  value="3">Hủy Đơn Hàng</option>
+                    </select>
                   </form>
-
-                  @else
+                @elseif($or->order_status==2)
                   <form>
                     @csrf
                     <select class="form-control order_details">
                       <option id={{$or->order_id}} value="1">Chưa xử lý</option>
-                     <option id={{$or->order_id}} value="2">Đã xử lý-Đã giao hàng</option>
-                     <option id={{$or->order_id}} selected value="3">Hủy Đơn Hàng</option>
+                      <option id={{$or->order_id}} selected value="2">Đã xử lý-Đã giao hàng</option>
+                      <option id={{$or->order_id}} value="3">Hủy Đơn Hàng</option>
                     </select>
-                    </form>
+                  </form>
+                @else
+                  <form>
+                    @csrf
+                    <select class="form-control order_details">
+                      <option id={{$or->order_id}} value="1">Chưa xử lý</option>
+                      <option id={{$or->order_id}} value="2">Đã xử lý-Đã giao hàng</option>
+                      <option id={{$or->order_id}} selected value="3">Hủy Đơn Hàng</option>
+                    </select>
+                  </form>
                  @endif
-                  @endforeach
+                 <a target="_blank" href="{{url('/print-order/'.$or->order_code)}}">In Đơn Hàng</a>
+              @endforeach
             </td>
            </tr>
         </tbody>
       </table>
-      <a target="_blank" href="{{url('/print-order/'.$details->order_code)}}">In Đơn Hàng</a>
+      
     </div>
    
   </div>

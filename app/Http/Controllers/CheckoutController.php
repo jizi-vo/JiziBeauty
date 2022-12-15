@@ -217,7 +217,7 @@ public function print_order_convert($checkout_code){
    $order_data['shipping_id'] = Session::get('shipping_id');
    $order_data['payment_id']  = $payment_id;
    $order_data['order_total'] = cart::total();
-   $order_data['order_status'] = 'Dang cho xu ly';
+   $order_data['order_status'] = '1';
    $order_data['order_code'] = $new_order_code;
  
 
