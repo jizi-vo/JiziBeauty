@@ -69,7 +69,7 @@
 						</div>
 						<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-								@lang('lang.languge')
+								@lang('languge')
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu">
